@@ -34,8 +34,18 @@ class SolarRadiationChart extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: LineChart(
             LineChartData(
-              gridData: const FlGridData(show: false),
+              gridData: const FlGridData(show: true),
               titlesData: FlTitlesData(
+                leftTitles: const AxisTitles(
+                sideTitles: SideTitles(showTitles: false),
+                
+              ),
+                topTitles: const AxisTitles(
+                sideTitles: SideTitles(showTitles: false),
+              ),
+              rightTitles: const AxisTitles(
+                sideTitles: SideTitles(showTitles: false),
+              ),
                 bottomTitles: AxisTitles(
                   sideTitles: SideTitles(
                     showTitles: true,
@@ -46,25 +56,31 @@ class SolarRadiationChart extends StatelessWidget {
                         case 0:
                           text = 'Oca';
                           break;
+                        
                         case 2:
                           text = 'Mar';
                           break;
+                        
                         case 4:
                           text = 'May';
                           break;
+                        
                         case 6:
                           text = 'Tem';
                           break;
+                        
                         case 8:
                           text = 'Eyl';
                           break;
+                        
                         case 10:
                           text = 'Kas';
                           break;
+                        
                       }
                       return Text(
                         text,
-                        style: const TextStyle(color: Colors.white70),
+                        style: const TextStyle(color: Color.fromARGB(179, 0, 0, 0)),
                       );
                     },
                   ),
@@ -78,12 +94,18 @@ class SolarRadiationChart extends StatelessWidget {
                 LineChartBarData(
                   isCurved: true,
                   spots: [
-                    FlSpot(0, solarData.solarRadiation * 0.8),
-                    FlSpot(2, solarData.solarRadiation * 0.9),
-                    FlSpot(4, solarData.solarRadiation * 1.0),
-                    FlSpot(6, solarData.solarRadiation * 1.1),
-                    FlSpot(8, solarData.solarRadiation * 1.0),
-                    FlSpot(10, solarData.solarRadiation * 0.9),
+                    FlSpot(0, solarData.monthlyKWh['OCAK']),
+                    FlSpot(1, solarData.monthlyKWh['SUBAT']),
+                    FlSpot(2, solarData.monthlyKWh["MART"]),
+                    FlSpot(3, solarData.monthlyKWh["NISAN"]),
+                    FlSpot(4, solarData.monthlyKWh["MAYIS"]),
+                    FlSpot(5, solarData.monthlyKWh["HAZIRAN"]),
+                    FlSpot(6, solarData.monthlyKWh["TEMMUZ"]),
+                    FlSpot(7, solarData.monthlyKWh["AGUSTOS"]),
+                    FlSpot(8, solarData.monthlyKWh["EYLUL"]),
+                    FlSpot(9, solarData.monthlyKWh["EKIM"]),
+                    FlSpot(10, solarData.monthlyKWh["KASIM"]),
+                    FlSpot(11, solarData.monthlyKWh["ARALIK"]),
                   ],
                   gradient: const LinearGradient(
                     colors: [Colors.orange, Colors.yellow],
@@ -146,26 +168,36 @@ class SunshineHoursChart extends StatelessWidget {
         child: BarChart(
           BarChartData(
             alignment: BarChartAlignment.spaceAround,
+            backgroundColor: Colors.white,
             maxY: 12,
             barTouchData: BarTouchData(
               enabled: true,
               touchTooltipData: BarTouchTooltipData(
-                tooltipPadding: const EdgeInsets.all(8),
-                tooltipMargin: 8,
+                tooltipPadding: const EdgeInsets.all(-5),
+                tooltipMargin: 5,
                 getTooltipItem: (group, groupIndex, rod, rodIndex) {
                   return BarTooltipItem(
                     '${rod.toY.round()}',
                     const TextStyle(
-                      color: Colors.white,
+                      color: Color.fromARGB(255, 86, 75, 75),
+                      backgroundColor: Color.fromARGB(255, 255, 255, 255),
                       fontWeight: FontWeight.bold,
                     ),
                   );
                 },
               ),
             ),
+            
             titlesData: FlTitlesData(
+              rightTitles: const AxisTitles(
+                sideTitles: SideTitles(showTitles: false),
+              ),
+              topTitles: const AxisTitles(
+                sideTitles: SideTitles(showTitles: false),
+              ),
               bottomTitles: AxisTitles(
                 sideTitles: SideTitles(
+                  
                   showTitles: true,
                   reservedSize: 30,
                   getTitlesWidget: (value, meta) {
@@ -206,37 +238,58 @@ class SunshineHoursChart extends StatelessWidget {
               ),
             ),
             borderData: FlBorderData(show: false),
-            barGroups: [0, 2, 4, 6, 8, 10].map((x) {
-              double multiplier;
+            barGroups: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((x) {
+              String multiplier;
               switch (x) {
                 case 0:
-                  multiplier = 0.8;
+                  multiplier = solarData.sunshineHours["OCAK"].toString();
+                  break;
+                case 1:
+                  multiplier = solarData.sunshineHours["SUBAT"].toString();
                   break;
                 case 2:
-                  multiplier = 0.9;
+                  multiplier = solarData.sunshineHours["MART"].toString();
+                  break;
+                case 3:
+                  multiplier = solarData.sunshineHours["NISAN"].toString();
                   break;
                 case 4:
-                  multiplier = 1.0;
+                  multiplier = solarData.sunshineHours["MAYIS"].toString();
+                  break;
+                case 5:
+                  multiplier = solarData.sunshineHours["HAZIRAN"].toString();
                   break;
                 case 6:
-                  multiplier = 1.1;
+                  multiplier = solarData.sunshineHours["TEMMUZ"].toString();
+                  break;
+                case 7:
+                  multiplier = solarData.sunshineHours["AGUSTOS"].toString();
                   break;
                 case 8:
-                  multiplier = 1.0;
+                  multiplier = solarData.sunshineHours["EYLUL"].toString();
+                  break;
+                case 9:
+                  multiplier = solarData.sunshineHours["EKIM"].toString();
                   break;
                 case 10:
-                  multiplier = 0.9;
+                  multiplier = solarData.sunshineHours["KASIM"].toString();
+                  break;
+                case 11:
+                  multiplier = solarData.sunshineHours["ARALIK"].toString();
                   break;
                 default:
-                  multiplier = 1.0;
+                  multiplier = solarData.sunshineHours["ARALIK"].toString();
               }
               return BarChartGroupData(
                 x: x,
                 barRods: [
                   BarChartRodData(
-                    toY: solarData.sunshineHours * multiplier,
+                    toY: double.parse(multiplier),
                     gradient: const LinearGradient(
-                      colors: [Colors.lightBlueAccent, Colors.blue],
+                      colors: [
+                        Color.fromARGB(255, 113, 184, 220),
+                        Color.fromARGB(255, 65, 139, 199)
+                      ],
                       begin: Alignment.bottomCenter,
                       end: Alignment.topCenter,
                     ),

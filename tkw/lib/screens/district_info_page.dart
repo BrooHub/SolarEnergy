@@ -22,7 +22,7 @@ class DistrictInfoPage extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: CustomAppBar(title: district.name),
+      appBar: CustomAppBar(title: district.ilce),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(

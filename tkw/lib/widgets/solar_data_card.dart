@@ -14,11 +14,11 @@ class SolarDataCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Güneş Radyasyonu: ${solarData.solarRadiation.toStringAsFixed(2)} kWh/m²'),
+            Text('Güneş Radyasyonu: ${solarData.monthlyKWh["EKIM"]} kWh/m²'),
             const SizedBox(height: 8),
-            Text('Güneşlenme Saatleri: ${solarData.sunshineHours.toStringAsFixed(2)} saat'),
+            Text('Güneşlenme Saatleri: ${solarData.monthlyKWh["EKIM"]} saat'),
             const SizedBox(height: 8),
-            Text('Enerji Potansiyeli: ${solarData.energyPotential.toStringAsFixed(2)} kWh/kWp'),
+            Text('Enerji Potansiyeli: ${solarData.monthlyKWh["EKIM"]} kWh/kWp'),
           ],
         ),
       ),

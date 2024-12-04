@@ -13,7 +13,7 @@ class ResultSummaryPage extends StatelessWidget {
     final solarData = appState.solarData;
 
     // Calculate values based on solar data
-    final estimatedProduction = solarData?.energyPotential ?? 0.0; // kWh
+    final estimatedProduction = solarData?.sunshineHours["Ekim"] ?? 0.0; // kWh
     const roi = 15.5; // %
     const paybackPeriod = 7.2; // years
     final co2Saved = estimatedProduction * 0.7; // Rough estimate: 0.7 kg CO2 per kWh

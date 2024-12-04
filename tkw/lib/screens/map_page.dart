@@ -55,7 +55,7 @@ class _MapPageState extends State<MapPage> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(district.name, style: Theme.of(context).textTheme.titleLarge),
+              Text(district.ilce, style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: 8),
               Text('Latitude: ${district.latitude.toStringAsFixed(4)}'),
               Text('Longitude: ${district.longitude.toStringAsFixed(4)}'),
