@@ -17,6 +17,9 @@ dependencies:
   geolocator: ^13.0.2
   latlong2: ^0.9.1
   http: ^1.2.2
+  webview_flutter: ^4.10.0
+  dropdown_search: ^6.0.1
+
 
 dev_dependencies:
   flutter_test:
@@ -29,3 +32,8 @@ flutter:
   assets:
     - assets/json/il.json
     - assets/json/ilce.json
+    - assets/images/warning.png
+    - assets/images/atom.png
+    - assets/images/fabrika.png
+    - assets/images/radar.png
+    - assets/images/sun.png

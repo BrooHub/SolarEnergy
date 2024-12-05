@@ -22,19 +22,23 @@ class DistrictInfoPage extends StatelessWidget {
     }
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: CustomAppBar(title: district.ilce),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SolarDataCard(solarData: solarData),
+            const Text(" Sonuç", style: TextStyle(fontSize: 25)),
+            SolarDataCard(solarData: solarData, mounth: "EKIM"),
             const SizedBox(height: 24),
-            Text('Güneş Işınımı Değişimi', style: Theme.of(context).textTheme.titleLarge),
+            Text(' Güneş Işınımı Değişimi',
+                style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 8),
             SolarRadiationChart(solarData: solarData),
             const SizedBox(height: 24),
-            Text('Güneşlenme Süresi', style: Theme.of(context).textTheme.titleLarge),
+            Text(' Güneşlenme Süresi',
+                style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 8),
             SunshineHoursChart(solarData: solarData),
             const SizedBox(height: 24),

@@ -41,17 +41,15 @@ class AppState extends ChangeNotifier {
   }
 
   Future<void> fetch() async {
-    // Ensure ilList and ilceList are populated before proceeding
+
     if (ilList.isEmpty || ilceList.isEmpty) {
       print("ilList or ilceList is empty. Ensure data is loaded.");
       return;
     }
 
-    // Load districts from JSON data
     for (var il in ilList) {
       final String ilName = il['id'].toString();
 
-      // Find matching entries in `ilce.json`
       final matchingIlces =
           ilceList.where((ilce) => ilce['posta_code'] == ilName);
 
@@ -60,21 +58,13 @@ class AppState extends ChangeNotifier {
       }
     }
 
-    // Populate the districtSolarData map
     for (var district in districts) {
-      // Create SolarData object for the district
       SolarData solarData = SolarData(
         ilce: district.ilce,
         monthlyKWh: district.monthlyKWh,
         sunshineHours: district.sunshineHours,
       );
-
-      // Add the SolarData to the map
       districtSolarData[district.ilce] = solarData;
-
-      // Print for debugging
-      print(
-          'District: ${district.ilce}, Posta Code: ${district.postaCode}, SolarData: $solarData');
     }
   }
 
@@ -95,22 +85,6 @@ class AppState extends ChangeNotifier {
   }
 
   final List<District> districts = [];
-
-  // Temporary solar data for districts
-  // final Map<String, SolarData> districtSolarData = {
-  //   'Ankara': SolarData(month: "Ekim",
-  //       solarRadiation: 4.2, sunshineHours: 7.5, energyPotential: 1600),
-  //   'Istanbul': SolarData(month:"Ekim",
-  //       solarRadiation: 3.8, sunshineHours: 6.8, energyPotential: 1450),
-  //   'Izmir': SolarData(month:"Ekim",
-  //       solarRadiation: 4.5, sunshineHours: 8.2, energyPotential: 1700),
-  //   'Antalya': SolarData(month:"Ekim",
-  //       solarRadiation: 5.1, sunshineHours: 9.0, energyPotential: 1900),
-  //   'Adana': SolarData(month:"Ekim",
-  //       solarRadiation: 4.8, sunshineHours: 8.5, energyPotential: 1800),
-  //   'Yığılca': SolarData(month:"Ekim",
-  //       solarRadiation: 4.8, sunshineHours: 8.5, energyPotential: 1800),
-  // };
 
   void setSelectedDistrict(District district) {
     selectedDistrict = district;
