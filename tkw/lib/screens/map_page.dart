@@ -38,24 +38,21 @@ class _MapPageState extends State<MapPage> {
       (il) => il['ilce'] == ilceName,
       orElse: () => null,
     );
-    print(ilceName);
+
     if (ilce == null) {
-      print("No matching city found for '$ilceName'");
+      print("No matching district found for '$ilceName'");
       return;
     }
 
-    if (ilce == null) {
-      print("No matching district found for ID '$ilce['posta_code']'");
-      return;
-    }
-
+    final postaCode = int.parse(ilce['posta_code']);
+    final city = AppState.ilList[postaCode - 1]['il'];
     final LatLng position = LatLng(
       ilce['latitude'],
       ilce['longitude'],
     );
 
-    print("Matching IL: $ilce['posta_code']");
-    print("Matching ILCE: $ilce");
+    print("Matching City: $city");
+    print("Matching District: $ilce");
     print("Position: $position");
 
     mapController.move(position, 10.0);
@@ -260,9 +257,9 @@ class _MapPageState extends State<MapPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-
           backgroundColor: Colors.white,
-          content: Text("Ülke: Türkiye \n Il: ${AppState.ilList[int.parse(district.postaCode)-1]['il']} \n Ilçe: ${district.ilce} ",
+          content: Text(
+            "Ülke: Türkiye \n Il: ${AppState.ilList[int.parse(district.postaCode) - 1]['il']} \n Ilçe: ${district.ilce} ",
           ),
           actions: <Widget>[
             TextButton(
@@ -282,9 +279,7 @@ class _MapPageState extends State<MapPage> {
               },
               child: const Text(
                 'Sec',
-                style: TextStyle(
-                  color: Colors.black
-                ),
+                style: TextStyle(color: Colors.black),
               ),
             ),
           ],

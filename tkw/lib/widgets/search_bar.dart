@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import '../providers/app_state.dart';
 
@@ -12,10 +11,8 @@ class MySearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-
     return Padding(
-      padding: const EdgeInsets.all(50.0),
+      padding: const EdgeInsets.fromLTRB(25,50,25,0),
       child: SearchAnchor(
         viewBackgroundColor: Colors.white,
         viewOnChanged: (value) {},
@@ -39,19 +36,25 @@ class MySearchBar extends StatelessWidget {
         suggestionsBuilder:
             (BuildContext context, SearchController controller) {
           final query = controller.value.text.toLowerCase();
-          final filteredList = AppState.ilceList
-              .where((ilce) => ilce['ilce'].toLowerCase().contains(query))
-              .toList();
+          
+          // Filter the list based on both `ilce` and `il` names
+          final filteredList = AppState.ilceList.where((ilce) {
+            final ilceName = ilce['ilce'].toLowerCase();
+            final postaCode = int.parse(ilce['posta_code']);
+            final ilName = AppState.ilList[postaCode - 1]['il'].toLowerCase();
+            return ilceName.contains(query) || ilName.contains(query);
+          }).toList();
 
           return List<ListTile>.generate(filteredList.length, (int index) {
             final item = filteredList[index];
+            final postaCode = int.parse(item['posta_code']);
+            final city = AppState.ilList[postaCode - 1]['il'];
             return ListTile(
               dense: true,
               trailing: Icon(Icons.ads_click_outlined),
-              title: Text("ilçe: ${item['ilce']} "),
-              subtitle: Text("Turkiye, il: " +
-                  AppState.ilList[int.parse(item['posta_code']) - 1]['il']),
-              leading: const Icon(Icons.home),
+              title: Text("İlçe: ${item['ilce']} "),
+              subtitle: Text("Türkiye, İl: $city"),
+              leading: const Icon(Icons.location_on),
               onTap: () {
                 onSearchResultSelected(item['ilce']);
                 controller.closeView("");

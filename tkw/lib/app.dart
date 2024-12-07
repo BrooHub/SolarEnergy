@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tkw/screens/query_address.dart';
+
 import 'package:tkw/screens/web_site.dart';
 import 'screens/search_page.dart';
 import 'screens/map_page.dart';
@@ -13,6 +15,7 @@ class SolarEnergyExplorer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Solar Energy Explorer',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -20,7 +23,7 @@ class SolarEnergyExplorer extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const MapPage(),
+        '/': (context) =>   MapPage(),
         '/district_info': (context) =>  const DistrictInfoPage(),
         '/energy_calculation': (context) => const EnergyCalculationPage(),
         '/statistics': (context) => const StatisticsPage(),

@@ -19,7 +19,7 @@ class SolarDataCard extends StatelessWidget {
           children: [
             Text('Güneş Radyasyonu: ${solarData.monthlyKWh[mounth]} kWh/m²',style:const TextStyle(fontSize: 20)),
             const SizedBox(height: 8),
-            Text('Güneşlenme Saatleri: ${solarData.monthlyKWh[mounth]} saat',style:const TextStyle(fontSize: 20)),
+            Text('Güneşlenme Saatleri: ${solarData.sunshineHours[mounth]} saat',style:const TextStyle(fontSize: 20)),
             const SizedBox(height: 8),
             Text('Enerji Potansiyeli: ${solarData.monthlyKWh[mounth]} kWh/kWp',style:const TextStyle(fontSize: 20)),
           ],

@@ -49,6 +49,8 @@ class _SearchPageState extends State<SearchPage> {
           children: [
             // Dropdown for selecting `il`
             DropdownButtonFormField<Map<String, dynamic>>(
+              
+              dropdownColor:Colors.white,
               value: selectedIl,
               decoration: const InputDecoration(
                 labelText: 'Select City (il)',
@@ -71,6 +73,7 @@ class _SearchPageState extends State<SearchPage> {
             const SizedBox(height: 16),
 
             DropdownButtonFormField<Map<String, dynamic>>(
+              dropdownColor:Colors.white,
               value: selectedIlce,
               decoration: const InputDecoration(
                 labelText: 'Select District (ilce)',
@@ -99,6 +102,7 @@ class _SearchPageState extends State<SearchPage> {
 
             // Date Picker
             DropdownButtonFormField<String>(
+              dropdownColor:Colors.white,
               value: selectedMonth,
               decoration: const InputDecoration(
                 labelText: 'Select Month',
