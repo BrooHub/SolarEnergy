@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tkw/models/solar_data.dart';
+import 'package:tkw/widgets/text_card.dart';
 import '../providers/app_state.dart';
+import '../widgets/home_button.dart';
 import '../widgets/solar_data_card.dart';
 
 class SearchPage extends StatefulWidget {
@@ -37,24 +39,31 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const Text('Aylık'),
+        title: const Text('Yılık',
+            style: TextStyle(
+                color: Color.fromARGB(255, 12, 65, 109),
+                fontSize: 27,
+                fontWeight: FontWeight.bold)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 16),
             // Dropdown for selecting `il`
             DropdownButtonFormField<Map<String, dynamic>>(
-              
-              dropdownColor:Colors.white,
+              dropdownColor: Colors.white,
               value: selectedIl,
               decoration: const InputDecoration(
-                labelText: 'Select City (il)',
-                border: OutlineInputBorder(),
+                fillColor: Colors.black,
+                labelText: 'Select (il)',
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(24.0))),
               ),
               items: AppState.ilList.map((il) {
                 return DropdownMenuItem<Map<String, dynamic>>(
@@ -70,14 +79,15 @@ class _SearchPageState extends State<SearchPage> {
                 });
               },
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 30),
 
             DropdownButtonFormField<Map<String, dynamic>>(
-              dropdownColor:Colors.white,
+              dropdownColor: Colors.white,
               value: selectedIlce,
               decoration: const InputDecoration(
-                labelText: 'Select District (ilce)',
-                border: OutlineInputBorder(),
+                labelText: 'Select (ilce)',
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(24.0))),
               ),
               items: selectedIl == null
                   ? []
@@ -98,15 +108,16 @@ class _SearchPageState extends State<SearchPage> {
               },
             ),
 
-            const SizedBox(height: 16),
+            const SizedBox(height: 30),
 
             // Date Picker
             DropdownButtonFormField<String>(
-              dropdownColor:Colors.white,
+              dropdownColor: Colors.white,
               value: selectedMonth,
               decoration: const InputDecoration(
                 labelText: 'Select Month',
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(24.0))),
               ),
               items: selectedIlce == null
                   ? []
@@ -128,12 +139,23 @@ class _SearchPageState extends State<SearchPage> {
                 });
               },
             ),
-            const SizedBox(height: 16),
-
+            const SizedBox(height: 20),
+            const Text("  Sonuç",
+                style: TextStyle(
+                    fontSize: 20, color: Color.fromARGB(255, 8, 50, 85))),
             if (activ) SolarDataCard(solarData: solar!, mounth: selectedMonth!),
+
+            const SizedBox(height: 20),
+            Row(
+              children: [
+                TextCard(text: 'Daha Fazla Sonuç \nGörmek İçin Tıklayın', onPressed: () {}),
+                TextCard(text: 'Enerji Üretimini \nHesaplamak İçin \nTıklayın', onPressed: () {}),
+              ],
+            ),
           ],
         ),
       ),
+      floatingActionButton: const HomeButton(),
     );
   }
 }

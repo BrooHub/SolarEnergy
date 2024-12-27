@@ -14,15 +14,19 @@ class SolarDataCard extends StatelessWidget {
       shadowColor: Colors.black,
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Güneş Radyasyonu: ${solarData.monthlyKWh[mounth]} kWh/m²',style:const TextStyle(fontSize: 20)),
-            const SizedBox(height: 8),
-            Text('Güneşlenme Saatleri: ${solarData.sunshineHours[mounth]} saat',style:const TextStyle(fontSize: 20)),
-            const SizedBox(height: 8),
-            Text('Enerji Potansiyeli: ${solarData.monthlyKWh[mounth]} kWh/kWp',style:const TextStyle(fontSize: 20)),
-          ],
+        child: SizedBox(
+          width: 350,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              
+              Text('Güneş Radyasyonu: ${solarData.monthlyKWh[mounth]} kWh/m²',style:const TextStyle(fontSize: 20)),
+              const SizedBox(height: 8),
+              Text('Güneşlenme Saatleri: ${solarData.sunshineHours[mounth]} saat',style:const TextStyle(fontSize: 20)),
+              const SizedBox(height: 8),
+              Text('Enerji Potansiyeli: ${solarData.monthlyKWh[mounth]} kWh/kWp',style:const TextStyle(fontSize: 20)),
+            ],
+          ),
         ),
       ),
     );
