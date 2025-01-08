@@ -8,12 +8,14 @@ import '../providers/app_state.dart';
 import '../models/district.dart';
 import '../widgets/card_button.dart';
 
+import '../widgets/floating_button.dart';
 import '../widgets/loading_indicator.dart';
 import '../widgets/search_bar.dart';
+import '../widgets/sheet.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
-
+  
   @override
   _MapPageState createState() => _MapPageState();
 }
@@ -21,7 +23,7 @@ class MapPage extends StatefulWidget {
 class _MapPageState extends State<MapPage> {
   bool isLoading = true;
   MapController mapController = MapController();
-
+  static const LatLng _center = LatLng(39.9334, 32.8597);
   @override
   void initState() {
     super.initState();
@@ -149,103 +151,14 @@ class _MapPageState extends State<MapPage> {
               MySearchBar(
                 onSearchResultSelected: _onSearchResultSelected,
               ),
-
-              // floatingActionButton: FloatingActionButton(
-              //   onPressed: () {
-              //     // Center the map on Ankara
-              //     mapController.move(_center, 7.0);
-              //   },
-              //   child: const Icon(Icons.my_location),
-              // ),
             ],
           ),
         ),
-        Expanded(
-          flex: 1, // Adjust this to control the split ratio
-          child: Container(
-            color: Colors.white, // Example background color
-
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const SizedBox(
-                      width: 250, // Button spans the full width of its parent
-                      height: 60,
-
-                      child: SizedBox(
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Zaman Dağılımı ",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                ),
-                              ),
-                              Icon(
-                                Icons.hourglass_bottom,
-                                color: Colors.black,
-                              )
-                            ]),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 30,
-                    ),
-                    IconButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/web_view');
-                        },
-                        icon: Image.asset('assets/images/warning.png',
-                            width: 70, height: 70)),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/search');
-                      },
-                      child: const CardButton(
-                        image: 'assets/images/atom.png',
-                        title: 'Yıllık Enerji',
-                        descaption: 'kWh/m²-yıl',
-                      ),
-                    ),
-                    const CardButton(
-                      image: 'assets/images/fabrika.png',
-                      title: 'Aylık Enerji',
-                      descaption: 'kWh/m²-Ay',
-                    )
-                  ],
-                ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CardButton(
-                      image: 'assets/images/radar.png',
-                      title: 'Günlük Enerji',
-                      descaption: 'kWh/m²-Gün',
-                    ),
-                    CardButton(
-                      image: 'assets/images/sun.png',
-                      title: 'Saatlik Enerji ',
-                      descaption: 'kWh/m²-Saat',
-                    )
-                  ],
-                )
-              ],
-            ),
-          ),
-        ),
       ]),
+      floatingActionButton: FancyFab(
+  mapController: mapController,
+  center: _center,
+),
     );
   }
 
