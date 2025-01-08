@@ -9,8 +9,8 @@ import '../models/district.dart';
 import '../models/solar_data.dart';
 
 class AppState extends ChangeNotifier {
-  District? selectedDistrict;
-  SolarData? solarData;
+  static District? selectedDistrict;
+  static SolarData? solarData;
   static List<dynamic> ilList = [];
   static List<dynamic> ilceList = [];
   static Map<String, SolarData> districtSolarData = {};
@@ -31,16 +31,14 @@ class AppState extends ChangeNotifier {
     try {
       final ilceData = await rootBundle.loadString('assets/json/ilce.json');
       ilceList = jsonDecode(ilceData);
+      
     } catch (e) {
       error = "Error loading district data: $e";
       notifyListeners();
     }
   }
 
-  AppState({
-    this.selectedDistrict,
-    this.solarData,
-  }) {
+  AppState() {
     _initializeData();
   }
 
@@ -90,7 +88,9 @@ class AppState extends ChangeNotifier {
           monthlyKWh: district.monthlyKWh,
           sunshineHours: district.sunshineHours,
         );
-        districtSolarData[district.ilce] = solarData;
+        // districtSolarData[district.ilce] = solarData;
+
+        districtSolarData.addAll({district.ilce:solarData});
       }
       
       error = null;
@@ -127,8 +127,15 @@ class AppState extends ChangeNotifier {
 
   void setSelectedDistrict(District district) {
     try {
+      print(district.latitude);
+      print(district.longitude);
+      print(district.sunshineHours['EKIM']);
+      print(district.monthlyKWh['EKIM']);
+      print(district.ilce);
       selectedDistrict = district;
-      solarData = districtSolarData[district.ilce];
+      
+      print(districtSolarData[district.ilce]);
+      solarData = SolarData(monthlyKWh: district.monthlyKWh, sunshineHours: district.sunshineHours, ilce: district.ilce);
       error = null;
     } catch (e) {
       error = "Error selecting district: $e";

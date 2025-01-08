@@ -3,13 +3,13 @@ import 'dart:convert';
 void main() {
   // Input string with numbers separated by spaces and newlines
   String input = '''
-1.77
-2.43
-4.01
-5.10 6.34 6.82 6.85 5.96 5.06
-3.70
-2.30
-1.70
+1.80
+2.63
+3.93 5.11 6.38 6.77 6.73 5.99 5.07
+
+3.65
+2.20
+1.60
   ''';
 
   // Month names in order

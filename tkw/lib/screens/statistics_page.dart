@@ -9,8 +9,8 @@ class StatisticsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appState = Provider.of<AppState>(context);
-    final solarData = appState.solarData;
+
+    final solarData = AppState.solarData;
 
     return DefaultTabController(
       length: 3,

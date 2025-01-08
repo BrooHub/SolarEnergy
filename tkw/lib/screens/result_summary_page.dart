@@ -9,8 +9,8 @@ class ResultSummaryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appState = Provider.of<AppState>(context);
-    final solarData = appState.solarData;
+
+    final solarData = AppState.solarData;
 
     // Calculate values based on solar data
     final estimatedProduction = solarData?.sunshineHours["Ekim"] ?? 0.0; // kWh

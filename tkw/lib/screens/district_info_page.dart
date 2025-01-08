@@ -10,9 +10,9 @@ class DistrictInfoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appState = Provider.of<AppState>(context);
-    final district = appState.selectedDistrict;
-    final solarData = appState.solarData;
+
+    final district = AppState.selectedDistrict;
+    final solarData = AppState.solarData;
 
     if (district == null || solarData == null) {
       return const Scaffold(
