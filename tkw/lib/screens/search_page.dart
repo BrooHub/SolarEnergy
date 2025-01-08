@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:tkw/models/solar_data.dart';
 import 'package:tkw/widgets/text_card.dart';
@@ -6,7 +8,7 @@ import '../widgets/home_button.dart';
 import '../widgets/solar_data_card.dart';
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({Key? key}) : super(key: key);
+  const SearchPage({super.key});
 
   @override
   _SearchPageState createState() => _SearchPageState();

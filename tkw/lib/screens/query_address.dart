@@ -1,10 +1,13 @@
+// ignore_for_file: avoid_print, library_private_types_in_public_api
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:tkw/providers/app_state.dart' ;
 
 class LocationSearch extends StatefulWidget {
+  const LocationSearch({super.key});
+
   @override
   _LocationSearchState createState() => _LocationSearchState();
 }
@@ -26,14 +29,14 @@ class _LocationSearchState extends State<LocationSearch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Search Location')),
+      appBar: AppBar(title: const Text('Search Location')),
       body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
               onChanged: _search,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Enter location',
                 border: OutlineInputBorder(),
               ),

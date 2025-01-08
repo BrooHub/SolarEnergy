@@ -21,7 +21,7 @@ class HomeButton extends StatelessWidget {
             shape: BoxShape.circle,
             border: Border.all(color: Colors.blueAccent, width: 1),
           ),
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           child: IconButton(
             
             onPressed: () {Navigator.pushNamed(context, '/');

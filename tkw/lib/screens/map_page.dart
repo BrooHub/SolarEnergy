@@ -1,4 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -92,9 +92,9 @@ class _MapPageState extends State<MapPage> {
                 style: ButtonStyle(
                     backgroundColor: WidgetStateProperty.all(Colors.white)),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/district_info');
+                  Navigator.pushNamed(context, '/result_summary');
                 },
-                child: Text('Detayları Görüntüle'),
+                child: const Text('Detayları Görüntüle'),
               ),
             ],
           ),
@@ -213,20 +213,20 @@ class _MapPageState extends State<MapPage> {
                       onTap: () {
                         Navigator.pushNamed(context, '/search');
                       },
-                      child: CardButton(
+                      child: const CardButton(
                         image: 'assets/images/atom.png',
                         title: 'Yıllık Enerji',
                         descaption: 'kWh/m²-yıl',
                       ),
                     ),
-                    CardButton(
+                    const CardButton(
                       image: 'assets/images/fabrika.png',
                       title: 'Aylık Enerji',
                       descaption: 'kWh/m²-Ay',
                     )
                   ],
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CardButton(
@@ -275,7 +275,7 @@ class _MapPageState extends State<MapPage> {
             ),
             TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/district_info');
+                Navigator.pushNamed(context, '/result_summary');
               },
               child: const Text(
                 'Sec',

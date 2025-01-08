@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/chart_widgets.dart';
 import '../providers/app_state.dart';
-import 'package:provider/provider.dart';
 
 class StatisticsPage extends StatelessWidget {
   const StatisticsPage({super.key});

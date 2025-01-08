@@ -5,7 +5,7 @@ import '../providers/app_state.dart';
 class MySearchBar extends StatelessWidget {
   final Function(String) onSearchResultSelected;
 
-  const MySearchBar({
+  const MySearchBar({super.key, 
     required this.onSearchResultSelected,
   });
 
@@ -51,7 +51,7 @@ class MySearchBar extends StatelessWidget {
             final city = AppState.ilList[postaCode - 1]['il'];
             return ListTile(
               dense: true,
-              trailing: Icon(Icons.ads_click_outlined),
+              trailing: const Icon(Icons.ads_click_outlined),
               title: Text("İlçe: ${item['ilce']} "),
               subtitle: Text("Türkiye, İl: $city"),
               leading: const Icon(Icons.location_on),

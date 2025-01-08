@@ -1,9 +1,8 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 
 class CardButton extends StatelessWidget {
-  CardButton({
+  const CardButton({
     super.key,
     required this.image,
     required this.title,
@@ -45,7 +44,7 @@ class CardButton extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(5),
+              padding: const EdgeInsets.all(5),
               child: Column(
                 children: [
                   // Title

@@ -6,16 +6,16 @@ class TextCard extends StatelessWidget {
       onPressed; // The function to call when the button is pressed
 
   const TextCard({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(8), // Spacing around the card
-      padding: EdgeInsets.all(16), // Spacing inside the card
+      margin: const EdgeInsets.all(8), // Spacing around the card
+      padding: const EdgeInsets.all(16), // Spacing inside the card
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12), // Rounded corners
@@ -24,7 +24,7 @@ class TextCard extends StatelessWidget {
             color: Colors.grey.withOpacity(0.2), // Shadow color
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 2), // Shadow position
+            offset: const Offset(0, 2), // Shadow position
           ),
         ],
       ),
@@ -42,7 +42,7 @@ class TextCard extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           ElevatedButton.icon(
             onPressed: onPressed,
             style: ElevatedButton.styleFrom(
@@ -50,10 +50,10 @@ class TextCard extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(24),
               ),
-              padding: EdgeInsets.symmetric(horizontal: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 8),
             ),
-            icon: Icon(Icons.arrow_forward, size: 16, color: Colors.white),
-            label: Text(
+            icon: const Icon(Icons.arrow_forward, size: 16, color: Colors.white),
+            label: const Text(
               'Göster',
               style: TextStyle(color: Colors.white),
             ),
