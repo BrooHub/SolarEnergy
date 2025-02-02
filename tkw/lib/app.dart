@@ -23,6 +23,7 @@ class SolarEnergyExplorer extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const MapPage(),
+        '/home': (context) => const MapPage(),
         '/district_info_page':(context)=>const DistrictInfoPage(),
         '/energy_calculation': (context) => const EnergyCalculationPage(),
         '/statistics': (context) => const StatisticsPage(),

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'card_button.dart';
 
 void showPaymentModal(BuildContext context) {
-
   showModalBottomSheet(
     context: context,
     shape: const RoundedRectangleBorder(
@@ -76,34 +75,32 @@ void showPaymentModal(BuildContext context) {
                     descaption: 'kWh/m²-yıl',
                   ),
                 ),
+                // GestureDetector(
+                //   onTap: () {
+                //     Navigator.pushNamed(context, '/district_info_page');
+                //   },
+                //   child: const CardButton(
+                //     image: 'assets/images/fabrika.png',
+                //     title: 'Aylık Enerji',
+                //     descaption: 'kWh/m²-Ay',
+                //   ),
+                // )
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, '/district_info_page');
+                    Navigator.pushNamed(context, '/web_view');
                   },
-                  child: const CardButton(
-                    image: 'assets/images/fabrika.png',
-                    title: 'Aylık Enerji',
-                    descaption: 'kWh/m²-Ay',
+                  child: CardButton(
+                    image: 'assets/images/radar.png',
+                    title: 'Kayanak Sayfası',
+                    descaption: 'Ziyaret edin',
                   ),
-                )
-              ],
-            ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CardButton(
-                  image: 'assets/images/radar.png',
-                  title: 'Günlük Enerji',
-                  descaption: 'kWh/m²-Gün',
                 ),
-                CardButton(
-                  image: 'assets/images/sun.png',
-                  title: 'Saatlik Enerji ',
-                  descaption: 'kWh/m²-Saat',
-                )
               ],
             ),
-            SizedBox(height: 20,)
+            
+            SizedBox(
+              height: 20,
+            )
           ],
         ),
       );

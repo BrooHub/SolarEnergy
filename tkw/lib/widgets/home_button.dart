@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tkw/screens/map_page.dart';
 
 class HomeButton extends StatelessWidget {
   const HomeButton({super.key});
@@ -23,18 +24,17 @@ class HomeButton extends StatelessWidget {
           ),
           padding: const EdgeInsets.all(8),
           child: IconButton(
-            
-            onPressed: () {Navigator.pushNamed(context, '/');
-              
+            onPressed: () {
+
+              Navigator.pop(context);
             },
             icon: Image.asset(
               'assets/images/home.png',
-              width: 36, 
+              width: 36,
               height: 36,
             ),
           ),
         ),
-
       ],
     );
   }

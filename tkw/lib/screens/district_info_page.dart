@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; 
 import '../providers/app_state.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/solar_data_card.dart';

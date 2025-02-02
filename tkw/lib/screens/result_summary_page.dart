@@ -6,9 +6,11 @@ import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../widgets/home_button.dart';
+
 class SolarCalculatorPage extends StatefulWidget {
   const SolarCalculatorPage({super.key});
-
+  
   @override
   State<SolarCalculatorPage> createState() => _SolarCalculatorPageState();
 }
@@ -28,18 +30,18 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
 
   // Türkçe ay isimleri
   final List<String> _turkishMonths = [
-    'Oca',
-    'Şub',
-    'Mar',
-    'Nis',
-    'May',
-    'Haz',
-    'Tem',
-    'Ağu',
-    'Eyl',
-    'Eki',
-    'Kas',
-    'Ara'
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12'
   ];
 
   @override
@@ -149,7 +151,10 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+
       body: CustomScrollView(
+
         slivers: [
           SliverAppBar.large(
             title: Text(
@@ -163,8 +168,8 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      Colors.blue.shade400,
-                      Colors.blue.shade800,
+                      Colors.yellow.shade200,
+                      Colors.blue.shade200,
                     ],
                   ),
                 ),
@@ -187,6 +192,7 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
           ),
         ],
       ),
+
     );
   }
 
@@ -259,7 +265,7 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
           prefixIcon: const Icon(Icons.location_on),
         ),
         items: const [
-          DropdownMenuItem(value: 'roof', child: Text('Çatı Üstü')),
+          DropdownMenuItem(value: 'roof', child: Text('Çatı')),
           DropdownMenuItem(value: 'ground', child: Text('Arazi')),
         ],
         onChanged: (value) => setState(() => _locationType = value!),
@@ -303,7 +309,7 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
       onPressed: _isLoading ? null : _calculateResults,
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.symmetric(vertical: 16),
-        backgroundColor: Colors.blue.shade700,
+        backgroundColor: Colors.teal,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
@@ -312,7 +318,7 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
           ? const CircularProgressIndicator()
           : const Text(
               'Hesapla',
-              style: TextStyle(fontSize: 18, color: Colors.white),
+              style: TextStyle(fontSize: 22, color: Colors.white),
             ),
     );
   }
@@ -465,8 +471,10 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
             const SizedBox(height: 24),
             SizedBox(
               height: 300,
+              
               child: BarChart(
                 BarChartData(
+
                   alignment: BarChartAlignment.spaceAround,
                   maxY: _monthlyData
                           .map((m) => m['production'])
@@ -509,7 +517,7 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
                             ),
                           ),
                         ),
-                        reservedSize: 40,
+                        reservedSize: 30,
                       ),
                     ),
                     rightTitles: AxisTitles(
@@ -518,7 +526,7 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
                         getTitlesWidget: (value, meta) => Padding(
                           padding: const EdgeInsets.only(left: 8.0),
                           child: Text(
-                            '${NumberFormat.compact().format(value)} TL',
+                            '${NumberFormat.compact().format(value)}',
                             style: TextStyle(
                               fontSize: 12,
                               color: Colors.green.shade700,
@@ -526,7 +534,7 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
                             ),
                           ),
                         ),
-                        reservedSize: 60,
+                        reservedSize: 50,
                       ),
                     ),
                     topTitles:
@@ -552,7 +560,7 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
                       barRods: [
                         BarChartRodData(
                           fromY: 0,
-                          toY: _monthlyData[index]['production'].toDouble(),
+                          toY: _monthlyData[index]['production'].toDouble()<7000? _monthlyData[index]['production'].toDouble():7000,
                           color: Colors.blue.shade400,
                           width: 8,
                           borderRadius: const BorderRadius.only(
@@ -562,7 +570,7 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
                         ),
                         BarChartRodData(
                           fromY: 0,
-                          toY: _monthlyData[index]['income'].toDouble(),
+                          toY: _monthlyData[index]['income'].toDouble()<7000 ? _monthlyData[index]['income'].toDouble() : 7000,
                           color: Colors.green.shade400,
                           width: 8,
                           borderRadius: const BorderRadius.only(

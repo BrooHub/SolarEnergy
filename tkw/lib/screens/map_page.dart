@@ -15,13 +15,13 @@ import '../widgets/sheet.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
+  static bool isLoading = true;
   
   @override
   _MapPageState createState() => _MapPageState();
 }
 
 class _MapPageState extends State<MapPage> {
-  bool isLoading = true;
   MapController mapController = MapController();
   static const LatLng _center = LatLng(39.9334, 32.8597);
   @override
@@ -30,12 +30,13 @@ class _MapPageState extends State<MapPage> {
     // Simulate map loading
     Future.delayed(const Duration(seconds: 2), () {
       setState(() {
-        isLoading = false;
+        MapPage.isLoading = false;
       });
     });
   }
 
   void _onSearchResultSelected(String ilceName) {
+    final appState = Provider.of<AppState>(context, listen: false);
     final ilce = AppState.ilceList.firstWhere(
       (il) => il['ilce'] == ilceName,
       orElse: () => null,
@@ -47,17 +48,23 @@ class _MapPageState extends State<MapPage> {
     }
 
     final postaCode = int.parse(ilce['posta_code']);
-    final city = AppState.ilList[postaCode - 1]['il'];
+    final city = AppState.ilList[postaCode - 1]['il'];  
     final LatLng position = LatLng(
       ilce['latitude'],
       ilce['longitude'],
     );
-
+  District ilc=appState.districts.firstWhere(
+    (il) => il.ilce == ilceName,
+      orElse: () => appState.districts.first,
+    );
     print("Matching City: $city");
     print("Matching District: $ilce");
     print("Position: $position");
 
     mapController.move(position, 10.0);
+    appState.setSelectedDistrict(ilc);
+    _showDistrictInfo(ilc);
+
   }
 
   void _onTap(LatLng position) {
@@ -128,14 +135,14 @@ class _MapPageState extends State<MapPage> {
                   MarkerLayer(
                     markers: appState.districts
                         .map((district) => Marker(
-                              width: 80.0,
-                              height: 80.0,
+                              width: 50.0,
+                              height: 50.0,
                               point:
                                   LatLng(district.latitude, district.longitude),
                               child: IconButton(
                                 icon: const Icon(Icons.location_on),
                                 color: Colors.red,
-                                iconSize: 45.0,
+                                iconSize: 25.0,
                                 onPressed: () {
                                   appState.setSelectedDistrict(district);
 
@@ -147,7 +154,7 @@ class _MapPageState extends State<MapPage> {
                   ),
                 ],
               ),
-              if (isLoading) const LoadingIndicator(),
+              if (MapPage.isLoading) const LoadingIndicator(),
               MySearchBar(
                 onSearchResultSelected: _onSearchResultSelected,
               ),

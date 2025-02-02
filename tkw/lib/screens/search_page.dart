@@ -138,6 +138,7 @@ class _SearchPageState extends State<SearchPage> {
                       sunshineHours: selectedIlce!['sunshineHours'],
                       ilce: selectedIl!['il']);
                   activ = true;
+                  AppState.solarData=solar;
                 });
               },
             ),
@@ -151,7 +152,9 @@ class _SearchPageState extends State<SearchPage> {
             Row(
               children: [
                 TextCard(text: 'Daha Fazla Sonuç \nGörmek İçin Tıklayın', onPressed: () {}),
-                TextCard(text: 'Enerji Üretimini \nHesaplamak İçin \nTıklayın', onPressed: () {}),
+                TextCard(text: 'Enerji Üretimini \nHesaplamak İçin \nTıklayın', onPressed: () {
+                        Navigator.pushNamed(context, '/result_summary');
+                      }),
               ],
             ),
           ],
