@@ -16,7 +16,7 @@ import '../widgets/sheet.dart';
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
   static bool isLoading = true;
-  
+
   @override
   _MapPageState createState() => _MapPageState();
 }
@@ -46,25 +46,44 @@ class _MapPageState extends State<MapPage> {
       print("No matching district found for '$ilceName'");
       return;
     }
+    if (AppState.selectedDistrict == null) {
+      AppState.selectedDistrict = District(
+          postaCode: ilce['posta_code'],
+          ilce: ilceName,
+          latitude: ilce['latitude'],
+          longitude: ilce['longitude'],
+          monthlyKWh: ilce['monthlyKWh'],
+          sunshineHours: ilce['sunshineHours']);
+    } else {
+      AppState.selectedDistrict?.ilce = ilceName;
+      AppState.selectedDistrict?.latitude = ilce['latitude'];
+      AppState.selectedDistrict?.longitude = ilce['longitude'];
+      AppState.selectedDistrict?.monthlyKWh = ilce['monthlyKWh'];
+      AppState.selectedDistrict?.sunshineHours = ilce['sunshineHours'];
+      AppState.selectedDistrict?.postaCode = ilce['posta_code'];
+    }
 
     final postaCode = int.parse(ilce['posta_code']);
-    final city = AppState.ilList[postaCode - 1]['il'];  
+    final city = AppState.ilList[postaCode - 1]['il'];
     final LatLng position = LatLng(
       ilce['latitude'],
       ilce['longitude'],
     );
-  District ilc=appState.districts.firstWhere(
-    (il) => il.ilce == ilceName,
-      orElse: () => appState.districts.first,
-    );
+
     print("Matching City: $city");
     print("Matching District: $ilce");
     print("Position: $position");
 
     mapController.move(position, 10.0);
-    appState.setSelectedDistrict(ilc);
-    _showDistrictInfo(ilc);
 
+    if (MapPage.isLoading) {
+      const LoadingIndicator();
+    }
+    Future.delayed(const Duration(seconds: 1), () {
+      setState(() {
+        _showDistrictInfo(AppState.selectedDistrict!);
+      });
+    });
   }
 
   void _onTap(LatLng position) {
@@ -163,9 +182,9 @@ class _MapPageState extends State<MapPage> {
         ),
       ]),
       floatingActionButton: FancyFab(
-  mapController: mapController,
-  center: _center,
-),
+        mapController: mapController,
+        center: _center,
+      ),
     );
   }
 

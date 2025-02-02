@@ -2,12 +2,12 @@ import 'dart:convert';
 
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 class District {
-  final String postaCode;
-  final String ilce;
-  final double latitude;
-  final double longitude;
-  final Map<String, double> monthlyKWh;
-  final Map<String, double> sunshineHours;
+   String postaCode;
+   String ilce;
+   double latitude;
+   double longitude;
+   Map<String, dynamic> monthlyKWh;
+   Map<String, dynamic> sunshineHours;
 
   District({
     required this.postaCode,
