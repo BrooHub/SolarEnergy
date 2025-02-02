@@ -6,12 +6,10 @@ import 'package:latlong2/latlong.dart';
 import 'package:provider/provider.dart';
 import '../providers/app_state.dart';
 import '../models/district.dart';
-import '../widgets/card_button.dart';
 
 import '../widgets/floating_button.dart';
 import '../widgets/loading_indicator.dart';
 import '../widgets/search_bar.dart';
-import '../widgets/sheet.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
@@ -36,7 +34,7 @@ class _MapPageState extends State<MapPage> {
   }
 
   void _onSearchResultSelected(String ilceName) {
-    final appState = Provider.of<AppState>(context, listen: false);
+    Provider.of<AppState>(context, listen: false);
     final ilce = AppState.ilceList.firstWhere(
       (il) => il['ilce'] == ilceName,
       orElse: () => null,

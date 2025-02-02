@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
@@ -8,7 +10,7 @@ class FancyFab extends StatefulWidget {
   final MapController mapController;
   final LatLng center;
 
-  FancyFab({
+  const FancyFab({super.key, 
     required this.mapController,
     required this.center,
   });
@@ -23,14 +25,14 @@ class _FancyFabState extends State<FancyFab> with SingleTickerProviderStateMixin
   late Animation<Color?> _buttonColor;
   late Animation<double> _animateIcon;
   late Animation<double> _translateButton;
-  Curve _curve = Curves.easeOut;
-  double _fabHeight = 56.0;
+  final Curve _curve = Curves.easeOut;
+  final double _fabHeight = 56.0;
 
   @override
   initState() {
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
     )..addListener(() {
         setState(() {});
       });
@@ -70,37 +72,31 @@ class _FancyFabState extends State<FancyFab> with SingleTickerProviderStateMixin
   }
 
   Widget payment() {
-    return Container(
-      child: FloatingActionButton(
-        backgroundColor: Colors.white,
-        onPressed: () => showPaymentModal(context),
-        tooltip: 'Home',
-        child: Icon(Icons.home,size: 30,),
-      ),
+    return FloatingActionButton(
+      backgroundColor: Colors.white,
+      onPressed: () => showPaymentModal(context),
+      tooltip: 'Home',
+      child: const Icon(Icons.home,size: 30,),
     );
   }
 
   Widget zoomToCenter() {
-    return Container(
-      child: FloatingActionButton(
-        backgroundColor: Colors.white,
-        onPressed: () => widget.mapController.move(widget.center, 7.0),
-        tooltip: 'Zoom to Center',
-        child: Icon(Icons.my_location,size:30),
-      ),
+    return FloatingActionButton(
+      backgroundColor: Colors.white,
+      onPressed: () => widget.mapController.move(widget.center, 7.0),
+      tooltip: 'Zoom to Center',
+      child: const Icon(Icons.my_location,size:30),
     );
   }
 
   Widget toggle() {
-    return Container(
-      child: FloatingActionButton(
-        backgroundColor: _buttonColor.value,
-        onPressed: animate,
-        tooltip: 'Toggle',
-        child: AnimatedIcon(
-          icon: AnimatedIcons.menu_close,
-          progress: _animateIcon,
-        ),
+    return FloatingActionButton(
+      backgroundColor: _buttonColor.value,
+      onPressed: animate,
+      tooltip: 'Toggle',
+      child: AnimatedIcon(
+        icon: AnimatedIcons.menu_close,
+        progress: _animateIcon,
       ),
     );
   }

@@ -1,26 +1,17 @@
-// ignore_for_file: depend_on_referenced_packages, constant_identifier_names
-
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
-import 'package:intl/date_symbol_data_local.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../widgets/home_button.dart';
+import 'package:tkw/providers/app_state.dart';
 
 class SolarCalculatorPage extends StatefulWidget {
   const SolarCalculatorPage({super.key});
-  
+
   @override
   State<SolarCalculatorPage> createState() => _SolarCalculatorPageState();
 }
 
-class _SolarCalculatorPageState extends State<SolarCalculatorPage>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _animationController = AnimationController(
-    vsync: this,
-    duration: const Duration(milliseconds: 500),
-  );
+class _SolarCalculatorPageState extends State<SolarCalculatorPage> {
   final _formKey = GlobalKey<FormState>();
   final _panelCapacityController = TextEditingController(text: '400');
   final _panelCountController = TextEditingController(text: '10');
@@ -28,71 +19,7 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
   String _locationType = 'roof';
   bool _isLoading = false;
 
-  // Türkçe ay isimleri
-  final List<String> _turkishMonths = [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '10',
-    '11',
-    '12'
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-    initializeDateFormatting('tr_TR', null);
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 500),
-    );
-  }
-
-  // Efficiency factors ve diğer sabitler aynı...
-  static const Map<String, Map<String, dynamic>> EFFICIENCY_FACTORS = {
-    'roof': {
-      'efficiency': 0.95,
-      'monthlyFactors': {
-        0: 0.6,
-        1: 0.7,
-        2: 0.8,
-        3: 0.9,
-        4: 1.0,
-        5: 1.0,
-        6: 1.0,
-        7: 0.95,
-        8: 0.9,
-        9: 0.8,
-        10: 0.7,
-        11: 0.6
-      }
-    },
-    'ground': {
-      'efficiency': 0.98,
-      'monthlyFactors': {
-        0: 0.65,
-        1: 0.75,
-        2: 0.85,
-        3: 0.95,
-        4: 1.0,
-        5: 1.0,
-        6: 1.0,
-        7: 0.98,
-        8: 0.92,
-        9: 0.85,
-        10: 0.75,
-        11: 0.65
-      }
-    }
-  };
-
-  // Results
+  // Hesaplama sonuçları
   double _dcCapacity = 0;
   double _acCapacity = 0;
   double _annualProduction = 0;
@@ -103,75 +30,151 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
   double _co2Saved = 0;
   List<Map<String, dynamic>> _monthlyData = [];
 
+  // Açıklama verileri
+  final List<Map<String, String>> _resultDescriptions = [
+    {
+      'title': 'DC Kapasite',
+      'description': 'Solar panel sisteminin teorik maksimum DC çıkış gücü',
+      'formula': '(Panel Gücü × Panel Sayısı) / 1000'
+    },
+    {
+      'title': 'AC Kapasite',
+      'description': 'Şebekeye aktarılabilen gerçek AC güç kapasitesi',
+      'formula': 'DC Kapasite × Ortalama Verimlilik Faktörü'
+    },
+    {
+      'title': 'Toplam Maliyet',
+      'description': 'Sistemin kurulum ve ekipman maliyetinin toplamı',
+      'formula': 'DC Kapasite × 1000 × Maliyet Faktörü'
+    },
+    {
+      'title': 'Yıllık Üretim',
+      'description': 'Yılda üretilen toplam elektrik miktarı',
+      'formula': 'Aylık Üretimlerin Toplamı'
+    },
+    {
+      'title': 'Yıllık Gelir',
+      'description': 'Üretilen elektriğin satışından elde edilen gelir',
+      'formula': 'Yıllık Üretim × Elektrik Fiyatı'
+    },
+    {
+      'title': 'ROI',
+      'description': 'Yatırım Getiri Oranı (Return on Investment)',
+      'formula': '(Yıllık Gelir / Toplam Maliyet) × 100'
+    },
+    {
+      'title': 'Geri Ödeme Süresi',
+      'description': 'Yatırımın kendini amorti etme süresi',
+      'formula': 'Toplam Maliyet / Yıllık Gelir'
+    },
+    {
+      'title': 'CO2 Tasarrufu',
+      'description': 'Yıllık karbon salınım tasarrufu',
+      'formula': 'Yıllık Üretim × 0.5 kg/kWh'
+    },
+  ];
+
   Future<void> _calculateResults() async {
     if (!_formKey.currentState!.validate()) return;
+    final district = AppState.selectedDistrict;
+    if (district == null || district.monthlyKWh.isEmpty) return;
 
     setState(() => _isLoading = true);
+    await Future.delayed(const Duration(milliseconds: 200));
 
-    // Animasyon efekti için kısa delay
-    await Future.delayed(const Duration(milliseconds: 500));
+    try {
+      final panelCapacity = double.parse(_panelCapacityController.text);
+      final panelCount = int.parse(_panelCountController.text);
+      final electricityPrice = double.parse(_electricityPriceController.text);
+      final monthlyKWh = district.monthlyKWh;
 
-    final panelCapacity = double.parse(_panelCapacityController.text);
-    final panelCount = int.parse(_panelCountController.text);
-    final electricityPrice = double.parse(_electricityPriceController.text);
-    const systemCostPerWatt = 1.5;
+      final maxMonthlyKWh = monthlyKWh.values
+          .map((e) => e as double)
+          .reduce((a, b) => a > b ? a : b);
+      final efficiency = _locationType == 'roof' ? 0.95 : 0.98;
 
-    setState(() {
+      final monthlyFactors = monthlyKWh.values
+          .map((kwh) => ((kwh as double) / maxMonthlyKWh) * efficiency)
+          .toList();
+
+      final costFactor =
+          monthlyFactors.reduce((double a, double b) => a + b) / 12;
+
+      // Kapasite hesaplamaları
       _dcCapacity = (panelCapacity * panelCount) / 1000;
-      _acCapacity =
-          _dcCapacity * EFFICIENCY_FACTORS[_locationType]!['efficiency'];
+      _acCapacity = _dcCapacity * costFactor;
+      _totalCost = _dcCapacity * 1000 * costFactor;
 
-      _monthlyData = List.generate(12, (month) {
-        final baseProduction = _dcCapacity * 4.5 * 30;
-        final factor =
-            EFFICIENCY_FACTORS[_locationType]!['monthlyFactors'][month];
-        final production = baseProduction * factor;
-        final income = production * electricityPrice;
+      // Aylık üretim verileri
+      _monthlyData = List.generate(12, (index) {
+        const dailySunHours = 4.5;
+        const daysInMonth = 30;
+
+        final baseProduction = _dcCapacity * dailySunHours * daysInMonth;
+        final production = baseProduction * monthlyFactors[index];
 
         return {
-          'month': _turkishMonths[month],
-          'production': production.round(),
-          'income': income.round(),
+          'month': '${index + 1}',
+          'production': production,
+          'income': production * electricityPrice,
+          'factor': monthlyFactors[index],
         };
       });
 
-      _annualProduction =
-          _monthlyData.fold(0.0, (sum, month) => sum + month['production']);
+      // Yıllık toplamlar
+      _annualProduction = _monthlyData
+          .map((m) => m['production'] as double)
+          .reduce((a, b) => a + b);
       _annualIncome = _annualProduction * electricityPrice;
-      _totalCost = _dcCapacity * 1000 * systemCostPerWatt;
       _roi = (_annualIncome / _totalCost) * 100;
       _paybackPeriod = _totalCost / _annualIncome;
       _co2Saved = _annualProduction * 0.5;
-      _isLoading = false;
-    });
+    } finally {
+      setState(() => _isLoading = false);
+    }
+  }
 
-    _animationController.forward(from: 0.0);
+  void _showInfoDialog(BuildContext context, int index) {
+    final info = _resultDescriptions[index];
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(info['title']!),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(info['description']!, style: const TextStyle(fontSize: 16)),
+            const SizedBox(height: 15),
+            Text('Hesaplama Formülü:',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.blue.shade800)),
+            Text(info['formula']!,
+                style: const TextStyle(fontFamily: 'monospace', fontSize: 14)),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Kapat'),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
       body: CustomScrollView(
-
         slivers: [
           SliverAppBar.large(
-            title: Text(
-              'Güneş Enerjisi Hesaplayıcı',
-              style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
-            ),
-            flexibleSpace: FlexibleSpaceBar(
-              background: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      Colors.yellow.shade200,
-                      Colors.blue.shade200,
-                    ],
-                  ),
+            title: Text('Güneş Enerjisi Hesaplama',
+                style: GoogleFonts.poppins(fontWeight: FontWeight.bold)),
+            flexibleSpace: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.blue.shade800, Colors.green.shade600],
                 ),
               ),
             ),
@@ -186,20 +189,19 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
                   _buildResultsCard(),
                   const SizedBox(height: 24),
                   _buildProductionChart(),
-                ],
+                ]
               ]),
             ),
           ),
         ],
       ),
-
     );
   }
 
   Widget _buildInputForm() {
     return Card(
-      elevation: 8,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Form(
@@ -208,37 +210,50 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                'Sistem Bilgileri',
-                style: GoogleFonts.poppins(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+                'Sistem Parametreleri',
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    color: Colors.blue.shade800, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 20),
               _buildDropdownField(),
               const SizedBox(height: 16),
-              _buildInputField(
+              _buildNumberInput(
                 controller: _panelCapacityController,
-                label: 'Panel Kapasitesi',
-                suffix: 'W',
+                label: 'Panel Gücü (W)',
                 icon: Icons.solar_power,
               ),
               const SizedBox(height: 16),
-              _buildInputField(
+              _buildNumberInput(
                 controller: _panelCountController,
                 label: 'Panel Sayısı',
-                suffix: 'adet',
-                icon: Icons.grid_view,
+                icon: Icons.format_list_numbered,
               ),
               const SizedBox(height: 16),
-              _buildInputField(
+              _buildNumberInput(
                 controller: _electricityPriceController,
-                label: 'Elektrik Fiyatı',
-                suffix: 'TL/kWh',
-                icon: Icons.bolt,
+                label: 'Elektrik Fiyatı (₺/kWh)',
+                icon: Icons.attach_money,
               ),
               const SizedBox(height: 24),
-              _buildCalculateButton(),
+              ElevatedButton(
+                onPressed: _isLoading ? null : _calculateResults,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.teal,
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                child: _isLoading
+                    ? const CircularProgressIndicator(color: Colors.white)
+                    : Text(
+                        'HESAPLA',
+                        style: GoogleFonts.poppins(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+              ),
             ],
           ),
         ),
@@ -247,351 +262,152 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
   }
 
   Widget _buildDropdownField() {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.shade300),
-      ),
-      child: DropdownButtonFormField<String>(
-        value: _locationType,
-        decoration: InputDecoration(
-          labelText: 'Lokasyon Tipi',
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide.none,
-          ),
-          filled: true,
-          fillColor: Colors.grey.shade50,
-          prefixIcon: const Icon(Icons.location_on),
+    return DropdownButtonFormField<String>(
+      value: _locationType,
+      decoration: InputDecoration(
+        labelText: 'Kurulum Tipi',
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: Colors.grey.shade400),
         ),
-        items: const [
-          DropdownMenuItem(value: 'roof', child: Text('Çatı')),
-          DropdownMenuItem(value: 'ground', child: Text('Arazi')),
-        ],
-        onChanged: (value) => setState(() => _locationType = value!),
+        filled: true,
+        fillColor: Colors.grey.shade50,
+        prefixIcon: const Icon(Icons.location_on),
       ),
+      items: const [
+        DropdownMenuItem(value: 'roof', child: Text('Çatı Kurulumu')),
+        DropdownMenuItem(value: 'ground', child: Text('Arazi Kurulumu')),
+      ],
+      onChanged: (value) => setState(() => _locationType = value!),
     );
   }
 
-  Widget _buildInputField({
+  Widget _buildNumberInput({
     required TextEditingController controller,
     required String label,
-    required String suffix,
     required IconData icon,
   }) {
     return TextFormField(
       controller: controller,
+      keyboardType: TextInputType.number,
       decoration: InputDecoration(
         labelText: label,
-        suffixText: suffix,
         prefixIcon: Icon(icon),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: Colors.grey.shade400),
         ),
         filled: true,
         fillColor: Colors.grey.shade50,
       ),
-      keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Bu alan gerekli';
-        }
-        if (double.tryParse(value) == null) {
-          return 'Geçerli bir sayı girin';
-        }
+        if (value == null || value.isEmpty) return 'Bu alan zorunludur';
+        final number = double.tryParse(value);
+        if (number == null) return 'Geçersiz sayı formatı';
+        if (number <= 0) return 'Sıfırdan büyük olmalı';
         return null;
       },
     );
   }
 
-  Widget _buildCalculateButton() {
-    return ElevatedButton(
-      onPressed: _isLoading ? null : _calculateResults,
-      style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(vertical: 16),
-        backgroundColor: Colors.teal,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-      ),
-      child: _isLoading
-          ? const CircularProgressIndicator()
-          : const Text(
-              'Hesapla',
-              style: TextStyle(fontSize: 22, color: Colors.white),
-            ),
-    );
-  }
-
   Widget _buildResultsCard() {
-    return Card(
-      elevation: 8,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Sonuçlar',
-              style: GoogleFonts.poppins(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 20),
-            _buildResultGrid(),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildResultGrid() {
+    final format = NumberFormat("#,###", "tr_TR");
     final results = [
+      {'label': 'DC Kapasite', 'value': '${_dcCapacity.toStringAsFixed(1)} kW'},
+      {'label': 'AC Kapasite', 'value': '${_acCapacity.toStringAsFixed(1)} kW'},
       {
-        'icon': Icons.solar_power,
-        'label': 'DC Güç',
-        'value': '${_dcCapacity.toStringAsFixed(2)} kW'
-      },
-      {
-        'icon': Icons.electric_bolt,
-        'label': 'AC Güç',
-        'value': '${_acCapacity.toStringAsFixed(2)} kW'
-      },
-      {
-        'icon': Icons.power,
-        'label': 'Yıllık Üretim',
-        'value': '${NumberFormat('#,###').format(_annualProduction)} kWh'
-      },
-      {
-        'icon': Icons.attach_money,
-        'label': 'Yıllık Gelir',
-        'value': '${NumberFormat('#,###').format(_annualIncome)} TL'
-      },
-      {
-        'icon': Icons.calculate,
         'label': 'Toplam Maliyet',
-        'value': '${NumberFormat('#,###').format(_totalCost)} USD'
+        'value': '₺${format.format(_totalCost.round())}'
       },
       {
-        'icon': Icons.trending_up,
-        'label': 'ROI',
-        'value': '%${_roi.toStringAsFixed(2)}'
+        'label': 'Yıllık Üretim',
+        'value': '${format.format(_annualProduction.round())} kWh'
       },
       {
-        'icon': Icons.access_time,
-        'label': 'Geri Ödeme',
-        'value': '${_paybackPeriod.toStringAsFixed(1)} yıl'
+        'label': 'Yıllık Gelir',
+        'value': '₺${format.format(_annualIncome.round())}'
+      },
+      {'label': 'ROI', 'value': '${_roi.toStringAsFixed(1)}%'},
+      {
+        'label': 'Geri Ödeme ',
+        'value': '${_paybackPeriod.toStringAsFixed(1)} Yıl'
       },
       {
-        'icon': Icons.eco,
         'label': 'CO2 Tasarrufu',
-        'value': '${_co2Saved.toStringAsFixed(1)} kg/yıl'
+        'value': '${format.format(_co2Saved.round())} kg'
       },
     ];
 
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 2,
-        crossAxisSpacing: 16,
-        mainAxisSpacing: 16,
-      ),
-      itemCount: results.length,
-      itemBuilder: (context, index) {
-        return _buildResultItem(
-          icon: results[index]['icon'] as IconData,
-          label: results[index]['label'] as String,
-          value: results[index]['value'] as String,
-        );
-      },
-    );
-  }
-
-  Widget _buildResultItem({
-    required IconData icon,
-    required String label,
-    required String value,
-  }) {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.grey.shade50,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.shade200),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(icon, size: 20, color: Colors.blue.shade700),
-              const SizedBox(width: 8),
-              Text(
-                label,
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
-          const Spacer(),
-          Text(
-            value,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildProductionChart() {
     return Card(
-      elevation: 8,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              'Aylık Üretim ve Gelir',
-              style: GoogleFonts.poppins(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+              'Hesaplama Sonuçları',
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  color: Colors.green.shade800, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 24),
-            SizedBox(
-              height: 300,
-              
-              child: BarChart(
-                BarChartData(
-
-                  alignment: BarChartAlignment.spaceAround,
-                  maxY: _monthlyData
-                          .map((m) => m['production'])
-                          .reduce((a, b) => a > b ? a : b) *
-                      1.2,
-                  titlesData: FlTitlesData(
-                    bottomTitles: AxisTitles(
-                      sideTitles: SideTitles(
-                        showTitles: true,
-                        getTitlesWidget: (value, meta) {
-                          if (value.toInt() >= 0 &&
-                              value.toInt() < _monthlyData.length) {
-                            return Padding(
-                              padding: const EdgeInsets.only(top: 8.0),
-                              child: Text(
-                                _monthlyData[value.toInt()]['month'].toString(),
-                                style: const TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            );
-                          }
-                          return const Text('');
-                        },
-                        reservedSize: 40,
-                      ),
-                    ),
-                    leftTitles: AxisTitles(
-                      sideTitles: SideTitles(
-                        showTitles: true,
-                        getTitlesWidget: (value, meta) => Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
-                          child: Text(
-                            NumberFormat.compact().format(value),
+            const SizedBox(height: 20),
+            GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 2.2,
+                mainAxisSpacing: 12,
+                crossAxisSpacing: 12,
+              ),
+              itemCount: results.length,
+              itemBuilder: (context, index) => GestureDetector(
+                onTap: () => _showInfoDialog(context, index),
+                child: Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: _getResultColor(index),
+                    borderRadius: BorderRadius.circular(8),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.shade200,
+                        blurRadius: 4,
+                        offset: const Offset(2, 2),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            results[index]['label']!,
                             style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.blue.shade700,
-                              fontWeight: FontWeight.w500,
+                              color: Colors.blueGrey.shade800,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
-                        ),
-                        reservedSize: 30,
+                          Icon(Icons.info_outline,
+                              size: 18, color: Colors.blueGrey.shade600),
+                        ],
                       ),
-                    ),
-                    rightTitles: AxisTitles(
-                      sideTitles: SideTitles(
-                        showTitles: true,
-                        getTitlesWidget: (value, meta) => Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
-                          child: Text(
-                            '${NumberFormat.compact().format(value)}',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.green.shade700,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
+                      const Spacer(),
+                      Text(
+                        results[index]['value']!,
+                        style: TextStyle(
+                          color: Colors.blueGrey.shade900,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
                         ),
-                        reservedSize: 50,
                       ),
-                    ),
-                    topTitles:
-                        const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                  ),
-                  gridData: FlGridData(
-                    show: true,
-                    drawHorizontalLine: true,
-                    horizontalInterval: null,
-                    getDrawingHorizontalLine: (value) => FlLine(
-                      color: Colors.grey.shade200,
-                      strokeWidth: 1,
-                    ),
-                  ),
-                  borderData: FlBorderData(
-                    show: true,
-                    border: Border.all(color: Colors.grey.shade300),
-                  ),
-                  barGroups: List.generate(
-                    _monthlyData.length,
-                    (index) => BarChartGroupData(
-                      x: index,
-                      barRods: [
-                        BarChartRodData(
-                          fromY: 0,
-                          toY: _monthlyData[index]['production'].toDouble()<7000? _monthlyData[index]['production'].toDouble():7000,
-                          color: Colors.blue.shade400,
-                          width: 8,
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(4),
-                            topRight: Radius.circular(4),
-                          ),
-                        ),
-                        BarChartRodData(
-                          fromY: 0,
-                          toY: _monthlyData[index]['income'].toDouble()<7000 ? _monthlyData[index]['income'].toDouble() : 7000,
-                          color: Colors.green.shade400,
-                          width: 8,
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(4),
-                            topRight: Radius.circular(4),
-                          ),
-                        ),
-                      ],
-                    ),
+                    ],
                   ),
                 ),
               ),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _buildLegendItem('Üretim (kWh)', Colors.blue.shade400),
-                const SizedBox(width: 24),
-                _buildLegendItem('Gelir (TL)', Colors.green.shade400),
-              ],
             ),
           ],
         ),
@@ -599,7 +415,133 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
     );
   }
 
-  Widget _buildLegendItem(String label, Color color) {
+  Color _getResultColor(int index) {
+    final colors = [
+      Colors.blue.shade50,
+      Colors.green.shade50,
+      Colors.orange.shade50,
+      Colors.purple.shade50,
+      Colors.red.shade50,
+      Colors.teal.shade50,
+      Colors.yellow.shade50,
+      Colors.pink.shade50,
+    ];
+    return colors[index % colors.length];
+  }
+
+  Widget _buildProductionChart() {
+    if (_monthlyData.isEmpty) return const SizedBox.shrink();
+
+    final maxFactor = _monthlyData
+        .map((m) => m['factor'] as double)
+        .reduce((a, b) => a > b ? a : b);
+
+    return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              'Aylık Performans',
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  color: Colors.blue.shade800, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+            SizedBox(
+              height: 300,
+              child: BarChart(
+                BarChartData(
+                  alignment: BarChartAlignment.spaceAround,
+                  barTouchData: BarTouchData(
+                    enabled: true,
+                    touchTooltipData: BarTouchTooltipData(
+                      tooltipPadding: const EdgeInsets.all(8),
+                      getTooltipItem: (group, groupIndex, rod, rodIndex) {
+                        final month = _monthlyData[group.x.toInt()];
+                        return BarTooltipItem(
+                          '${month['month']}. Ay\n'
+                          'Üretim: ${NumberFormat('#,###').format(month['production'])} kWh\n'
+                          'Verimlilik: ${(month['factor'] * 100).toStringAsFixed(1)}%',
+                          const TextStyle(color: Colors.white),
+                        );
+                      },
+                    ),
+                  ),
+                  titlesData: FlTitlesData(
+                    topTitles: AxisTitles(),
+                    bottomTitles: AxisTitles(
+                      sideTitles: SideTitles(
+                        showTitles: false,
+                        getTitlesWidget: (value, meta) => Text(
+                          _monthlyData[value.toInt()]['month'],
+                          style: TextStyle(
+                            color: Colors.blueGrey.shade600,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                    ),
+                    rightTitles: AxisTitles(),
+                    leftTitles: AxisTitles(),
+                  ),
+                  gridData: FlGridData(
+                    show: true,
+                    drawVerticalLine: false,
+                    getDrawingHorizontalLine: (value) => FlLine(
+                      color: Colors.blueGrey.shade100,
+                      strokeWidth: 1,
+                    ),
+                  ),
+                  borderData: FlBorderData(show: false),
+                  barGroups: _monthlyData.asMap().entries.map((entry) {
+                    final index = entry.key;
+                    final data = entry.value;
+                    final factor = data['factor'] as double;
+
+                    return BarChartGroupData(
+                      x: index,
+                      barRods: [
+                        BarChartRodData(
+                          toY: data['production'],
+                          color: Color.lerp(
+                            Colors.blue.shade200,
+                            Colors.blue.shade800,
+                            factor / maxFactor,
+                          )!,
+                          width: 20,
+                          borderRadius: BorderRadius.circular(4),
+                        )
+                      ],
+                    );
+                  }).toList(),
+                ),
+              ),
+            ),
+            const SizedBox(height: 15),
+            _buildChartLegend(maxFactor),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildChartLegend(double maxFactor) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        _buildLegendItem('Düşük Verim (0%)', Colors.blue.shade200),
+        const SizedBox(width: 15),
+        _buildLegendItem(
+            'Yüksek Verim (${(maxFactor * 100).toStringAsFixed(0)}%)',
+            Colors.blue.shade800),
+      ],
+    );
+  }
+
+  Widget _buildLegendItem(String text, Color color) {
     return Row(
       children: [
         Container(
@@ -610,12 +552,12 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
             borderRadius: BorderRadius.circular(4),
           ),
         ),
-        const SizedBox(width: 8),
+        const SizedBox(width: 6),
         Text(
-          label,
-          style: const TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.w500,
+          text,
+          style: TextStyle(
+            color: Colors.blueGrey.shade800,
+            fontSize: 12,
           ),
         ),
       ],
@@ -627,7 +569,6 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage>
     _panelCapacityController.dispose();
     _panelCountController.dispose();
     _electricityPriceController.dispose();
-    _animationController.dispose();
     super.dispose();
   }
 }

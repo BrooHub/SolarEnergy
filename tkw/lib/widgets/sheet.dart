@@ -89,7 +89,7 @@ void showPaymentModal(BuildContext context) {
                   onTap: () {
                     Navigator.pushNamed(context, '/web_view');
                   },
-                  child: CardButton(
+                  child: const CardButton(
                     image: 'assets/images/radar.png',
                     title: 'Kayanak Sayfası',
                     descaption: 'Ziyaret edin',
@@ -98,7 +98,7 @@ void showPaymentModal(BuildContext context) {
               ],
             ),
             
-            SizedBox(
+            const SizedBox(
               height: 20,
             )
           ],
