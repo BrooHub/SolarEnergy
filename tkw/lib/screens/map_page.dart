@@ -63,40 +63,41 @@ class _MapPageState extends State<MapPage> {
 
     final postaCode = int.parse(ilce['posta_code']);
     final city = AppState.ilList[postaCode - 1]['il'];
-    final LatLng position = LatLng(
-      ilce['latitude'],
-      ilce['longitude'],
-    );
+
 
     print("Matching City: $city");
     print("Matching District: $ilce");
-    print("Position: $position");
 
-    mapController.move(position, 10.0);
+    mapController.move(
+        LatLng(
+          ilce['latitude'],
+          ilce['longitude'],
+        ),
+        10.0);
 
     if (MapPage.isLoading) {
       const LoadingIndicator();
     }
     Future.delayed(const Duration(seconds: 1), () {
       setState(() {
-        _showDistrictInfo(AppState.selectedDistrict!);
+        _showDialog(context,AppState.selectedDistrict!);
       });
     });
   }
 
-  void _onTap(LatLng position) {
-    final appState = Provider.of<AppState>(context, listen: false);
-    // Find the nearest district
-    District nearestDistrict = appState.districts.reduce((a, b) {
-      double distA = (a.latitude - position.latitude).abs() +
-          (a.longitude - position.longitude).abs();
-      double distB = (b.latitude - position.latitude).abs() +
-          (b.longitude - position.longitude).abs();
-      return distA < distB ? a : b;
-    });
-    appState.setSelectedDistrict(nearestDistrict);
-    _showDistrictInfo(nearestDistrict);
-  }
+  // void _onTap(LatLng position) {
+  //   final appState = Provider.of<AppState>(context, listen: false);
+  //   // Find the nearest district
+  //   District nearestDistrict = appState.districts.reduce((a, b) {
+  //     double distA = (a.latitude - position.latitude).abs() +
+  //         (a.longitude - position.longitude).abs();
+  //     double distB = (b.latitude - position.latitude).abs() +
+  //         (b.longitude - position.longitude).abs();
+  //     return distA < distB ? a : b;
+  //   });
+  //   appState.setSelectedDistrict(nearestDistrict);
+  //   _showDistrictInfo(nearestDistrict);
+  // }
 
   void _showDistrictInfo(District district) {
     showModalBottomSheet(
@@ -141,7 +142,7 @@ class _MapPageState extends State<MapPage> {
               FlutterMap(
                 mapController: mapController,
                 options: MapOptions(
-                  onTap: (_, position) => _onTap(position),
+                  onTap: (_, position) => (){},
                 ),
                 children: [
                   TileLayer(

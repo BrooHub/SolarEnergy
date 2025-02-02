@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:tkw/models/solar_data.dart';
 import 'package:tkw/widgets/text_card.dart';
+import '../models/district.dart';
 import '../providers/app_state.dart';
 import '../widgets/home_button.dart';
 import '../widgets/solar_data_card.dart';
@@ -138,7 +139,6 @@ class _SearchPageState extends State<SearchPage> {
                       sunshineHours: selectedIlce!['sunshineHours'],
                       ilce: selectedIl!['il']);
                   activ = true;
-                  AppState.solarData=solar;
                 });
               },
             ),
@@ -151,10 +151,14 @@ class _SearchPageState extends State<SearchPage> {
             const SizedBox(height: 20),
             Row(
               children: [
-                TextCard(text: 'Daha Fazla Sonuç \nGörmek İçin Tıklayın', onPressed: () {}),
-                TextCard(text: 'Enerji Üretimini \nHesaplamak İçin \nTıklayın', onPressed: () {
-                        Navigator.pushNamed(context, '/result_summary');
-                      }),
+                TextCard(
+                    text: 'Daha Fazla Sonuç \nGörmek İçin Tıklayın',
+                    onPressed: () {}),
+                TextCard(
+                    text: 'Enerji Üretimini \nHesaplamak İçin \nTıklayın',
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/result_summary');
+                    }),
               ],
             ),
           ],
