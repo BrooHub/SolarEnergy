@@ -139,6 +139,27 @@ class _SearchPageState extends State<SearchPage> {
                       sunshineHours: selectedIlce!['sunshineHours'],
                       ilce: selectedIl!['il']);
                   activ = true;
+                  if (AppState.selectedDistrict == null) {
+                    AppState.selectedDistrict = District(
+                        postaCode: selectedIlce!['posta_code'],
+                        ilce: selectedIl!['il'],
+                        latitude: selectedIlce!['latitude'],
+                        longitude: selectedIlce!['longitude'],
+                        monthlyKWh: selectedIlce!['monthlyKWh'],
+                        sunshineHours: selectedIlce!['monthlyKWh']);
+                  } else {
+                    AppState.selectedDistrict?.ilce = selectedIl!['il'];
+                    AppState.selectedDistrict?.latitude =
+                        selectedIlce!['latitude'];
+                    AppState.selectedDistrict?.longitude =
+                        selectedIlce!['longitude'];
+                    AppState.selectedDistrict?.monthlyKWh =
+                        selectedIlce!['monthlyKWh'];
+                    AppState.selectedDistrict?.sunshineHours =
+                        selectedIlce!['sunshineHours'];
+                    AppState.selectedDistrict?.postaCode =
+                        selectedIlce!['posta_code'];
+                  }
                 });
               },
             ),
@@ -153,12 +174,18 @@ class _SearchPageState extends State<SearchPage> {
               children: [
                 TextCard(
                     text: 'Daha Fazla Sonuç \nGörmek İçin Tıklayın',
-                    onPressed: () {}),
-                TextCard(
-                    text: 'Enerji Üretimini \nHesaplamak İçin \nTıklayın',
                     onPressed: () {
-                      Navigator.pushNamed(context, '/result_summary');
+                      Navigator.pushNamed(context, '/web_view');
                     }),
+                activ == true
+                    ? TextCard(
+                        text: 'Enerji Üretimini \nHesaplamak İçin \nTıklayın',
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/result_summary');
+                        })
+                    : TextCard(
+                        text: 'Enerji Üretimini \nHesaplamak İçin \nTıklayın',
+                        onPressed: () {})
               ],
             ),
           ],
