@@ -14,8 +14,8 @@ class TextCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(8), // Spacing around the card
-      padding: const EdgeInsets.all(16), // Spacing inside the card
+      margin: const EdgeInsets.all(4), // Spacing around the card
+      padding: const EdgeInsets.all(12), // Spacing inside the card
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12), // Rounded corners
@@ -32,7 +32,7 @@ class TextCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           SizedBox(
-            width: 150,
+            width: 144,
             child: Text(
               text,
               style: TextStyle(

@@ -7,6 +7,7 @@ import '../models/district.dart';
 import '../providers/app_state.dart';
 import '../widgets/home_button.dart';
 import '../widgets/solar_data_card.dart';
+import 'web_site_id.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -20,6 +21,7 @@ class _SearchPageState extends State<SearchPage> {
 
   // Selected Values
   Map<String, dynamic>? selectedIl;
+  dynamic id;
   Map<String, dynamic>? selectedIlce;
   SolarData? solar;
   bool activ = false;
@@ -77,6 +79,7 @@ class _SearchPageState extends State<SearchPage> {
               onChanged: (value) {
                 setState(() {
                   selectedIl = value;
+                  id = value?['id'];
                   print(value);
                   selectedIlce = null;
                 });
@@ -175,7 +178,13 @@ class _SearchPageState extends State<SearchPage> {
                 TextCard(
                     text: 'Daha Fazla Sonuç \nGörmek İçin Tıklayın',
                     onPressed: () {
-                      Navigator.pushNamed(context, '/web_view');
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WebView(id: selectedIl?['id'] == null ? 1:selectedIl?['id']),
+                        ),
+                        (route) => true, // This removes all previous routes
+                      );
                     }),
                 activ == true
                     ? TextCard(
