@@ -471,7 +471,7 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage> {
                     ),
                   ),
                   titlesData: FlTitlesData(
-                    topTitles: AxisTitles(),
+                    topTitles: const AxisTitles(),
                     bottomTitles: AxisTitles(
                       sideTitles: SideTitles(
                         showTitles: false,
@@ -484,8 +484,8 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage> {
                         ),
                       ),
                     ),
-                    rightTitles: AxisTitles(),
-                    leftTitles: AxisTitles(),
+                    rightTitles: const AxisTitles(),
+                    leftTitles: const AxisTitles(),
                   ),
                   gridData: FlGridData(
                     show: true,

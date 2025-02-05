@@ -181,7 +181,7 @@ class _SearchPageState extends State<SearchPage> {
                       Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => WebView(id: selectedIl?['id'] == null ? 1:selectedIl?['id']),
+                          builder: (context) => WebView(id: selectedIl?['id'] ?? 1),
                         ),
                         (route) => true, // This removes all previous routes
                       );
