@@ -16,7 +16,7 @@ class CardButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: Colors.white,
-      margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+      margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16.0),
         side:const  BorderSide(color: Color.fromARGB(255, 150, 206, 253)),
