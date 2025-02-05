@@ -317,7 +317,7 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage> {
       {'label': 'AC Kapasite', 'value': '${_acCapacity.toStringAsFixed(1)} kW'},
       {
         'label': 'Toplam Maliyet',
-        'value': '₺${format.format(_totalCost.round())}'
+        'value': '${format.format(_totalCost.round())} ₺'
       },
       {
         'label': 'Yıllık Üretim',
@@ -325,9 +325,9 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage> {
       },
       {
         'label': 'Yıllık Gelir',
-        'value': '₺${format.format(_annualIncome.round())}'
+        'value': '${format.format(_annualIncome.round())} ₺'
       },
-      {'label': 'ROI', 'value': '${_roi.toStringAsFixed(1)}%'},
+      {'label': 'ROI', 'value': '${_roi.toStringAsFixed(1)} %'},
       {
         'label': 'Geri Ödeme ',
         'value': '${_paybackPeriod.toStringAsFixed(1)} Yıl'
