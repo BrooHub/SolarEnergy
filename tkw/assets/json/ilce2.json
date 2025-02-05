@@ -396,70 +396,20 @@
   {
     "posta_code": "54",
     "ilce": "Erenler",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.2, "SUBAT": 4.23, "MART": 5.01, "NISAN": 6.33, "MAYIS": 8.39, "HAZIRAN": 9.72, "TEMMUZ": 10.35, "AGUSTOS": 9.56, "EYLUL": 8.01, "EKIM": 5.53, "KASIM": 4.05, "ARALIK": 3.09}
+    ,
     "latitude": 40.755043,
     "longitude": 30.393438,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh":{"OCAK": 1.42, "SUBAT": 2.29, "MART": 3.28, "NISAN": 4.41, "MAYIS": 5.64, "HAZIRAN": 6.01, "TEMMUZ": 5.84, "AGUSTOS": 5.27, "EYLUL": 4.19, "EKIM": 2.86, "KASIM": 1.69, "ARALIK": 1.23}
   },
   {
     "posta_code": "57",
     "ilce": "Erfelek",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.46, "SUBAT": 4.42, "MART": 5.35, "NISAN": 6.62, "MAYIS": 7.8, "HAZIRAN": 9.44, "TEMMUZ": 10.08, "AGUSTOS": 9.32, "EYLUL": 7.57, "EKIM": 5.56, "KASIM": 4.32, "ARALIK": 3.21}
+    ,
     "latitude": 41.879261,
     "longitude": 34.918379,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.42, "SUBAT": 2.27, "MART": 3.25, "NISAN": 4.23, "MAYIS": 5.64, "HAZIRAN": 6.01, "TEMMUZ": 5.94, "AGUSTOS": 5.23, "EYLUL": 4.13, "EKIM": 2.71, "KASIM": 1.63, "ARALIK": 1.23}
   },
   {
     "posta_code": "21",
@@ -498,36 +448,12 @@
   {
     "posta_code": "59",
     "ilce": "Ergene",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": 
+    {"OCAK": 3.69, "SUBAT": 4.96, "MART": 5.54, "NISAN": 7.26, "MAYIS": 9.05, "HAZIRAN": 11.21, "TEMMUZ": 11.92, "AGUSTOS": 10.83, "EYLUL": 8.32, "EKIM": 5.66, "KASIM": 4.15, "ARALIK": 3.13}
+    ,
     "latitude": 39.9334,
     "longitude": 32.8597,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.5, "SUBAT": 2.24, "MART": 3.22, "NISAN": 4.46, "MAYIS": 5.61, "HAZIRAN": 5.97, "TEMMUZ": 5.8, "AGUSTOS": 5.33, "EYLUL": 4.14, "EKIM": 2.82, "KASIM": 1.69, "ARALIK": 1.2}
   },
   {
     "posta_code": "70",
@@ -540,36 +466,11 @@
   {
     "posta_code": "56",
     "ilce": "Eruh",
-    "sunshineHours": {
-      "OCAK": 3.94,
-      "SUBAT": 5.1,
-      "MART": 6.16,
-      "NISAN": 7.44,
-      "MAYIS": 9.76,
-      "HAZIRAN": 11.73,
-      "TEMMUZ": 12.01,
-      "AGUSTOS": 11.28,
-      "EYLUL": 9.99,
-      "EKIM": 7.28,
-      "KASIM": 5.61,
-      "ARALIK": 4.21
-    },
+    "sunshineHours":{"OCAK": 3.84, "SUBAT": 5.0, "MART": 6.04, "NISAN": 7.38, "MAYIS": 9.64, "HAZIRAN": 11.52, "TEMMUZ": 11.78, "AGUSTOS": 11.07, "EYLUL": 9.99, "EKIM": 7.19, "KASIM": 5.53, "ARALIK": 4.02}
+    ,
     "latitude": 37.741827,
     "longitude": 42.174218,
-    "monthlyKWh": {
-      "OCAK": 1.93,
-      "SUBAT": 2.58,
-      "MART": 4.11,
-      "NISAN": 5.11,
-      "MAYIS": 6.27,
-      "HAZIRAN": 6.78,
-      "TEMMUZ": 6.69,
-      "AGUSTOS": 5.92,
-      "EYLUL": 5.07,
-      "EKIM": 3.8,
-      "KASIM": 2.41,
-      "ARALIK": 1.8
-    }
+    "monthlyKWh": {"OCAK": 1.89, "SUBAT": 2.54, "MART": 4.09, "NISAN": 5.1, "MAYIS": 6.27, "HAZIRAN": 6.78, "TEMMUZ": 6.71, "AGUSTOS": 5.93, "EYLUL": 5.07, "EKIM": 3.79, "KASIM": 2.37, "ARALIK": 1.79}
   },
   {
     "posta_code": "31",
@@ -915,36 +816,11 @@
   {
     "posta_code": "52",
     "ilce": "Fatsa",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.44, "SUBAT": 4.4, "MART": 4.77, "NISAN": 6.24, "MAYIS": 7.96, "HAZIRAN": 9.06, "TEMMUZ": 8.92, "AGUSTOS": 8.6, "EYLUL": 7.72, "EKIM": 5.8, "KASIM": 4.34, "ARALIK": 3.11}
+    ,
     "latitude": 41.027778,
     "longitude": 37.501389,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh":{"OCAK": 1.54, "SUBAT": 2.41, "MART": 3.38, "NISAN": 4.48, "MAYIS": 5.77, "HAZIRAN": 6.12, "TEMMUZ": 6.05, "AGUSTOS": 5.42, "EYLUL": 4.28, "EKIM": 2.96, "KASIM": 1.76, "ARALIK": 1.32}
   },
   {
     "posta_code": "1",
@@ -1017,36 +893,11 @@
   {
     "posta_code": "54",
     "ilce": "Ferizli",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.2, "SUBAT": 4.23, "MART": 5.01, "NISAN": 6.33, "MAYIS": 8.39, "HAZIRAN": 9.72, "TEMMUZ": 10.35, "AGUSTOS": 9.56, "EYLUL": 8.01, "EKIM": 5.53, "KASIM": 4.05, "ARALIK": 3.09}
+    ,
     "latitude": 40.940824,
     "longitude": 30.48583,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.42, "SUBAT": 2.29, "MART": 3.28, "NISAN": 4.41, "MAYIS": 5.64, "HAZIRAN": 6.01, "TEMMUZ": 5.84, "AGUSTOS": 5.27, "EYLUL": 4.19, "EKIM": 2.86, "KASIM": 1.69, "ARALIK": 1.23}
   },
   {
     "posta_code": "48",
@@ -1085,36 +936,11 @@
   {
     "posta_code": "53",
     "ilce": "Fındıklı",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+   "sunshineHours":{"OCAK": 3.38, "SUBAT": 4.21, "MART": 5.21, "NISAN": 6.4, "MAYIS": 7.47, "HAZIRAN": 8.19, "TEMMUZ": 7.75, "AGUSTOS": 7.54, "EYLUL": 7.19, "EKIM": 5.37, "KASIM": 4.17, "ARALIK": 3.02}
+    ,
     "latitude": 41.268997,
     "longitude": 41.140016,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.34, "SUBAT": 2.36, "MART": 3.42, "NISAN": 4.65, "MAYIS": 5.91, "HAZIRAN": 6.21, "TEMMUZ": 6.21, "AGUSTOS": 5.59, "EYLUL": 4.43, "EKIM": 3.08, "KASIM": 1.73, "ARALIK": 1.22}
   },
   {
     "posta_code": "7",
@@ -1350,36 +1176,11 @@
   {
     "posta_code": "58",
     "ilce": "Gemerek",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.76, "SUBAT": 5.02, "MART": 5.99, "NISAN": 7.2, "MAYIS": 8.73, "HAZIRAN": 10.5, "TEMMUZ": 11.09, "AGUSTOS": 10.65, "EYLUL": 9.23, "EKIM": 6.8, "KASIM": 4.97, "ARALIK": 3.3},
     "latitude": 39.183423,
     "longitude": 36.07189,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.79, "SUBAT": 2.57, "MART": 3.9, "NISAN": 4.94, "MAYIS": 6.29, "HAZIRAN": 6.62, "TEMMUZ": 6.62, "AGUSTOS": 5.87, "EYLUL": 4.88, "EKIM": 3.4, "KASIM": 2.1, "ARALIK": 1.6}
+
   },
   {
     "posta_code": "16",
@@ -1448,36 +1249,11 @@
   {
     "posta_code": "57",
     "ilce": "Gerze",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.46, "SUBAT": 4.42, "MART": 5.35, "NISAN": 6.62, "MAYIS": 7.8, "HAZIRAN": 9.44, "TEMMUZ": 10.08, "AGUSTOS": 9.32, "EYLUL": 7.57, "EKIM": 5.56, "KASIM": 4.32, "ARALIK": 3.21}
+    ,
     "latitude": 41.803611,
     "longitude": 35.201111,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh":{"OCAK": 1.42, "SUBAT": 2.27, "MART": 3.25, "NISAN": 4.23, "MAYIS": 5.64, "HAZIRAN": 6.01, "TEMMUZ": 5.94, "AGUSTOS": 5.23, "EYLUL": 4.13, "EKIM": 2.71, "KASIM": 1.63, "ARALIK": 1.23}
   },
   {
     "posta_code": "65",
@@ -1502,36 +1278,11 @@
   {
     "posta_code": "54",
     "ilce": "Geyve",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours":{"OCAK": 3.2, "SUBAT": 4.23, "MART": 5.01, "NISAN": 6.33, "MAYIS": 8.39, "HAZIRAN": 9.72, "TEMMUZ": 10.35, "AGUSTOS": 9.56, "EYLUL": 8.01, "EKIM": 5.53, "KASIM": 4.05, "ARALIK": 3.09}
+    ,
     "latitude": 40.5075,
     "longitude": 30.2925,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh":{"OCAK": 1.42, "SUBAT": 2.29, "MART": 3.28, "NISAN": 4.41, "MAYIS": 5.64, "HAZIRAN": 6.01, "TEMMUZ": 5.84, "AGUSTOS": 5.27, "EYLUL": 4.19, "EKIM": 2.86, "KASIM": 1.69, "ARALIK": 1.23}
   },
   {
     "posta_code": "28",
@@ -1701,36 +1452,11 @@
   {
     "posta_code": "52",
     "ilce": "Gölköy",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours":{"OCAK": 3.44, "SUBAT": 4.4, "MART": 4.77, "NISAN": 6.24, "MAYIS": 7.96, "HAZIRAN": 9.06, "TEMMUZ": 8.92, "AGUSTOS": 8.6, "EYLUL": 7.72, "EKIM": 5.8, "KASIM": 4.34, "ARALIK": 3.11}
+    ,
     "latitude": 40.686893,
     "longitude": 37.615439,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.54, "SUBAT": 2.41, "MART": 3.38, "NISAN": 4.48, "MAYIS": 5.77, "HAZIRAN": 6.12, "TEMMUZ": 6.05, "AGUSTOS": 5.42, "EYLUL": 4.28, "EKIM": 2.96, "KASIM": 1.76, "ARALIK": 1.32}
   },
   {
     "posta_code": "45",
@@ -1769,36 +1495,11 @@
   {
     "posta_code": "58",
     "ilce": "Gölova",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.76, "SUBAT": 5.02, "MART": 5.99, "NISAN": 7.2, "MAYIS": 8.73, "HAZIRAN": 10.5, "TEMMUZ": 11.09, "AGUSTOS": 10.65, "EYLUL": 9.23, "EKIM": 6.8, "KASIM": 4.97, "ARALIK": 3.3},
     "latitude": 36.799167,
     "longitude": 30.038889,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh":{"OCAK": 1.79, "SUBAT": 2.57, "MART": 3.9, "NISAN": 4.94, "MAYIS": 6.29, "HAZIRAN": 6.62, "TEMMUZ": 6.62, "AGUSTOS": 5.87, "EYLUL": 4.88, "EKIM": 3.4, "KASIM": 2.1, "ARALIK": 1.6}
+
   },
   {
     "posta_code": "11",
@@ -2048,70 +1749,20 @@
   {
     "posta_code": "50",
     "ilce": "Gülşehir",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 4.07, "SUBAT": 5.32, "MART": 6.43, "NISAN": 7.65, "MAYIS": 9.16, "HAZIRAN": 11.17, "TEMMUZ": 12.05, "AGUSTOS": 11.48, "EYLUL": 9.68, "EKIM": 7.27, "KASIM": 5.35, "ARALIK": 3.57}
+    ,
     "latitude": 38.745936,
     "longitude": 34.625237,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh":{"OCAK": 1.87, "SUBAT": 2.48, "MART": 4.03, "NISAN": 4.95, "MAYIS": 6.2, "HAZIRAN": 6.61, "TEMMUZ": 6.71, "AGUSTOS": 5.94, "EYLUL": 4.95, "EKIM": 3.56, "KASIM": 2.22, "ARALIK": 1.68}
   },
   {
     "posta_code": "52",
     "ilce": "Gülyalı",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours":{"OCAK": 3.44, "SUBAT": 4.4, "MART": 4.77, "NISAN": 6.24, "MAYIS": 7.96, "HAZIRAN": 9.06, "TEMMUZ": 8.92, "AGUSTOS": 8.6, "EYLUL": 7.72, "EKIM": 5.8, "KASIM": 4.34, "ARALIK": 3.11}
+    ,
     "latitude": 40.961525,
     "longitude": 38.049371,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh":{"OCAK": 1.54, "SUBAT": 2.41, "MART": 3.38, "NISAN": 4.48, "MAYIS": 5.77, "HAZIRAN": 6.12, "TEMMUZ": 6.05, "AGUSTOS": 5.42, "EYLUL": 4.28, "EKIM": 2.96, "KASIM": 1.76, "ARALIK": 1.32}
   },
   {
     "posta_code": "5",
@@ -2218,36 +1869,11 @@
   {
     "posta_code": "53",
     "ilce": "Güneysu",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+   "sunshineHours":{"OCAK": 3.38, "SUBAT": 4.21, "MART": 5.21, "NISAN": 6.4, "MAYIS": 7.47, "HAZIRAN": 8.19, "TEMMUZ": 7.75, "AGUSTOS": 7.54, "EYLUL": 7.19, "EKIM": 5.37, "KASIM": 4.17, "ARALIK": 3.02}
+    ,
     "latitude": 40.981298,
     "longitude": 40.604646,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.34, "SUBAT": 2.36, "MART": 3.42, "NISAN": 4.65, "MAYIS": 5.91, "HAZIRAN": 6.21, "TEMMUZ": 6.21, "AGUSTOS": 5.59, "EYLUL": 4.43, "EKIM": 3.08, "KASIM": 1.73, "ARALIK": 1.22}
   },
   {
     "posta_code": "34",
@@ -2320,36 +1946,11 @@
   {
     "posta_code": "52",
     "ilce": "Gürgentepe",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.44, "SUBAT": 4.4, "MART": 4.77, "NISAN": 6.24, "MAYIS": 7.96, "HAZIRAN": 9.06, "TEMMUZ": 8.92, "AGUSTOS": 8.6, "EYLUL": 7.72, "EKIM": 5.8, "KASIM": 4.34, "ARALIK": 3.11}
+    ,
     "latitude": 40.78567,
     "longitude": 37.589688,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.54, "SUBAT": 2.41, "MART": 3.38, "NISAN": 4.48, "MAYIS": 5.77, "HAZIRAN": 6.12, "TEMMUZ": 6.05, "AGUSTOS": 5.42, "EYLUL": 4.28, "EKIM": 2.96, "KASIM": 1.76, "ARALIK": 1.32}
   },
   {
     "posta_code": "13",
@@ -2382,36 +1983,11 @@
   {
     "posta_code": "58",
     "ilce": "Gürün",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.76, "SUBAT": 5.02, "MART": 5.99, "NISAN": 7.2, "MAYIS": 8.73, "HAZIRAN": 10.5, "TEMMUZ": 11.09, "AGUSTOS": 10.65, "EYLUL": 9.23, "EKIM": 6.8, "KASIM": 4.97, "ARALIK": 3.3},
     "latitude": 38.722254,
     "longitude": 37.270968,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.79, "SUBAT": 2.57, "MART": 3.9, "NISAN": 4.94, "MAYIS": 6.29, "HAZIRAN": 6.62, "TEMMUZ": 6.62, "AGUSTOS": 5.87, "EYLUL": 4.88, "EKIM": 3.4, "KASIM": 2.1, "ARALIK": 1.6}
+
   },
   {
     "posta_code": "35",
@@ -2459,36 +2035,11 @@
   {
     "posta_code": "50",
     "ilce": "Hacıbektaş",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 4.07, "SUBAT": 5.32, "MART": 6.43, "NISAN": 7.65, "MAYIS": 9.16, "HAZIRAN": 11.17, "TEMMUZ": 12.05, "AGUSTOS": 11.48, "EYLUL": 9.68, "EKIM": 7.27, "KASIM": 5.35, "ARALIK": 3.57}
+    ,
     "latitude": 38.940774,
     "longitude": 34.557695,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh":{"OCAK": 1.87, "SUBAT": 2.48, "MART": 4.03, "NISAN": 4.95, "MAYIS": 6.2, "HAZIRAN": 6.61, "TEMMUZ": 6.71, "AGUSTOS": 5.94, "EYLUL": 4.95, "EKIM": 3.56, "KASIM": 2.22, "ARALIK": 1.68}
   },
   {
     "posta_code": "38",
@@ -2561,36 +2112,11 @@
   {
     "posta_code": "58",
     "ilce": "Hafik",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.76, "SUBAT": 5.02, "MART": 5.99, "NISAN": 7.2, "MAYIS": 8.73, "HAZIRAN": 10.5, "TEMMUZ": 11.09, "AGUSTOS": 10.65, "EYLUL": 9.23, "EKIM": 6.8, "KASIM": 4.97, "ARALIK": 3.3},
     "latitude": 39.856389,
     "longitude": 37.386389,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.79, "SUBAT": 2.57, "MART": 3.9, "NISAN": 4.94, "MAYIS": 6.29, "HAZIRAN": 6.62, "TEMMUZ": 6.62, "AGUSTOS": 5.87, "EYLUL": 4.88, "EKIM": 3.4, "KASIM": 2.1, "ARALIK": 1.6}
+
   },
   {
     "posta_code": "30",
@@ -2954,36 +2480,11 @@
   {
     "posta_code": "55",
     "ilce": "Havza",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.6, "SUBAT": 4.41, "MART": 5.17, "NISAN": 6.43, "MAYIS": 7.92, "HAZIRAN": 9.15, "TEMMUZ": 9.52, "AGUSTOS": 8.97, "EYLUL": 7.61, "EKIM": 5.72, "KASIM": 4.32, "ARALIK": 3.22}
+    ,
     "latitude": 40.970556,
     "longitude": 35.662222,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh":{"OCAK": 1.5, "SUBAT": 2.23, "MART": 3.25, "NISAN": 4.29, "MAYIS": 5.6, "HAZIRAN": 5.99, "TEMMUZ": 5.87, "AGUSTOS": 5.27, "EYLUL": 4.13, "EKIM": 2.82, "KASIM": 1.68, "ARALIK": 1.27}
   },
   {
     "posta_code": "6",
@@ -2996,36 +2497,12 @@
   {
     "posta_code": "59",
     "ilce": "Hayrabolu",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": 
+    {"OCAK": 3.69, "SUBAT": 4.96, "MART": 5.54, "NISAN": 7.26, "MAYIS": 9.05, "HAZIRAN": 11.21, "TEMMUZ": 11.92, "AGUSTOS": 10.83, "EYLUL": 8.32, "EKIM": 5.66, "KASIM": 4.15, "ARALIK": 3.13}
+    ,
     "latitude": 41.213112,
     "longitude": 27.106876,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.5, "SUBAT": 2.24, "MART": 3.22, "NISAN": 4.46, "MAYIS": 5.61, "HAZIRAN": 5.97, "TEMMUZ": 5.8, "AGUSTOS": 5.33, "EYLUL": 4.14, "EKIM": 2.82, "KASIM": 1.69, "ARALIK": 1.2}
   },
   {
     "posta_code": "61",
@@ -3110,70 +2587,20 @@
   {
     "posta_code": "53",
     "ilce": "Hemşin",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+  "sunshineHours":{"OCAK": 3.38, "SUBAT": 4.21, "MART": 5.21, "NISAN": 6.4, "MAYIS": 7.47, "HAZIRAN": 8.19, "TEMMUZ": 7.75, "AGUSTOS": 7.54, "EYLUL": 7.19, "EKIM": 5.37, "KASIM": 4.17, "ARALIK": 3.02}
+    ,
     "latitude": 41.047771,
     "longitude": 40.898402,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh":{"OCAK": 1.34, "SUBAT": 2.36, "MART": 3.42, "NISAN": 4.65, "MAYIS": 5.91, "HAZIRAN": 6.21, "TEMMUZ": 6.21, "AGUSTOS": 5.59, "EYLUL": 4.43, "EKIM": 3.08, "KASIM": 1.73, "ARALIK": 1.22}
   },
   {
     "posta_code": "54",
     "ilce": "Hendek",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours":{"OCAK": 3.2, "SUBAT": 4.23, "MART": 5.01, "NISAN": 6.33, "MAYIS": 8.39, "HAZIRAN": 9.72, "TEMMUZ": 10.35, "AGUSTOS": 9.56, "EYLUL": 8.01, "EKIM": 5.53, "KASIM": 4.05, "ARALIK": 3.09}
+    ,
     "latitude": 40.799444,
     "longitude": 30.748056,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.42, "SUBAT": 2.29, "MART": 3.28, "NISAN": 4.41, "MAYIS": 5.64, "HAZIRAN": 6.01, "TEMMUZ": 5.84, "AGUSTOS": 5.27, "EYLUL": 4.19, "EKIM": 2.86, "KASIM": 1.69, "ARALIK": 1.23}
   },
   {
     "posta_code": "25",
@@ -3552,70 +2979,20 @@
   {
     "posta_code": "52",
     "ilce": "İkizce",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.44, "SUBAT": 4.4, "MART": 4.77, "NISAN": 6.24, "MAYIS": 7.96, "HAZIRAN": 9.06, "TEMMUZ": 8.92, "AGUSTOS": 8.6, "EYLUL": 7.72, "EKIM": 5.8, "KASIM": 4.34, "ARALIK": 3.11}
+    ,
     "latitude": 39.595156,
     "longitude": 32.660974,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh":{"OCAK": 1.54, "SUBAT": 2.41, "MART": 3.38, "NISAN": 4.48, "MAYIS": 5.77, "HAZIRAN": 6.12, "TEMMUZ": 6.05, "AGUSTOS": 5.42, "EYLUL": 4.28, "EKIM": 2.96, "KASIM": 1.76, "ARALIK": 1.32}
   },
   {
     "posta_code": "53",
     "ilce": "İkizdere",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours":{"OCAK": 3.38, "SUBAT": 4.21, "MART": 5.21, "NISAN": 6.4, "MAYIS": 7.47, "HAZIRAN": 8.19, "TEMMUZ": 7.75, "AGUSTOS": 7.54, "EYLUL": 7.19, "EKIM": 5.37, "KASIM": 4.17, "ARALIK": 3.02}
+    ,
     "latitude": 40.774839,
     "longitude": 40.552272,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh":{"OCAK": 1.34, "SUBAT": 2.36, "MART": 3.42, "NISAN": 4.65, "MAYIS": 5.91, "HAZIRAN": 6.21, "TEMMUZ": 6.21, "AGUSTOS": 5.59, "EYLUL": 4.43, "EKIM": 3.08, "KASIM": 1.73, "ARALIK": 1.22}
   },
   {
     "posta_code": "24",
@@ -3654,36 +3031,11 @@
   {
     "posta_code": "55",
     "ilce": "İlkadım",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.6, "SUBAT": 4.41, "MART": 5.17, "NISAN": 6.43, "MAYIS": 7.92, "HAZIRAN": 9.15, "TEMMUZ": 9.52, "AGUSTOS": 8.97, "EYLUL": 7.61, "EKIM": 5.72, "KASIM": 4.32, "ARALIK": 3.22}
+    ,
     "latitude": 39.9334,
     "longitude": 32.8597,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.5, "SUBAT": 2.23, "MART": 3.25, "NISAN": 4.29, "MAYIS": 5.6, "HAZIRAN": 5.99, "TEMMUZ": 5.87, "AGUSTOS": 5.27, "EYLUL": 4.13, "EKIM": 2.82, "KASIM": 1.68, "ARALIK": 1.27}
   },
   {
     "posta_code": "1",
@@ -3722,36 +3074,11 @@
   {
     "posta_code": "58",
     "ilce": "İmranlı",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.76, "SUBAT": 5.02, "MART": 5.99, "NISAN": 7.2, "MAYIS": 8.73, "HAZIRAN": 10.5, "TEMMUZ": 11.09, "AGUSTOS": 10.65, "EYLUL": 9.23, "EKIM": 6.8, "KASIM": 4.97, "ARALIK": 3.3},
     "latitude": 39.875435,
     "longitude": 38.113582,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.79, "SUBAT": 2.57, "MART": 3.9, "NISAN": 4.94, "MAYIS": 6.29, "HAZIRAN": 6.62, "TEMMUZ": 6.62, "AGUSTOS": 5.87, "EYLUL": 4.88, "EKIM": 3.4, "KASIM": 2.1, "ARALIK": 1.6}
+
   },
   {
     "posta_code": "38",
@@ -4089,36 +3416,11 @@
   {
     "posta_code": "53",
     "ilce": "İyidere",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+   "sunshineHours":{"OCAK": 3.38, "SUBAT": 4.21, "MART": 5.21, "NISAN": 6.4, "MAYIS": 7.47, "HAZIRAN": 8.19, "TEMMUZ": 7.75, "AGUSTOS": 7.54, "EYLUL": 7.19, "EKIM": 5.37, "KASIM": 4.17, "ARALIK": 3.02}
+    ,
     "latitude": 41.011923,
     "longitude": 40.361846,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.34, "SUBAT": 2.36, "MART": 3.42, "NISAN": 4.65, "MAYIS": 5.91, "HAZIRAN": 6.21, "TEMMUZ": 6.21, "AGUSTOS": 5.59, "EYLUL": 4.43, "EKIM": 3.08, "KASIM": 1.73, "ARALIK": 1.22}
   },
   {
     "posta_code": "41",
@@ -4165,70 +3467,20 @@
   {
     "posta_code": "52",
     "ilce": "Kabadüz",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours":{"OCAK": 3.44, "SUBAT": 4.4, "MART": 4.77, "NISAN": 6.24, "MAYIS": 7.96, "HAZIRAN": 9.06, "TEMMUZ": 8.92, "AGUSTOS": 8.6, "EYLUL": 7.72, "EKIM": 5.8, "KASIM": 4.34, "ARALIK": 3.11}
+    ,
     "latitude": 40.860963,
     "longitude": 37.884705,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh":{"OCAK": 1.54, "SUBAT": 2.41, "MART": 3.38, "NISAN": 4.48, "MAYIS": 5.77, "HAZIRAN": 6.12, "TEMMUZ": 6.05, "AGUSTOS": 5.42, "EYLUL": 4.28, "EKIM": 2.96, "KASIM": 1.76, "ARALIK": 1.32}
   },
   {
     "posta_code": "52",
     "ilce": "Kabataş",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours":{"OCAK": 3.44, "SUBAT": 4.4, "MART": 4.77, "NISAN": 6.24, "MAYIS": 7.96, "HAZIRAN": 9.06, "TEMMUZ": 8.92, "AGUSTOS": 8.6, "EYLUL": 7.72, "EKIM": 5.8, "KASIM": 4.34, "ARALIK": 3.11}
+    ,
     "latitude": 40.75,
     "longitude": 37.45,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.54, "SUBAT": 2.41, "MART": 3.38, "NISAN": 4.48, "MAYIS": 5.77, "HAZIRAN": 6.12, "TEMMUZ": 6.05, "AGUSTOS": 5.42, "EYLUL": 4.28, "EKIM": 2.96, "KASIM": 1.76, "ARALIK": 1.32}
   },
   {
     "posta_code": "34",
@@ -4456,36 +3708,11 @@
   {
     "posta_code": "53",
     "ilce": "Kalkandere",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours":{"OCAK": 3.38, "SUBAT": 4.21, "MART": 5.21, "NISAN": 6.4, "MAYIS": 7.47, "HAZIRAN": 8.19, "TEMMUZ": 7.75, "AGUSTOS": 7.54, "EYLUL": 7.19, "EKIM": 5.37, "KASIM": 4.17, "ARALIK": 3.02}
+    ,
     "latitude": 40.920458,
     "longitude": 40.436924,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.34, "SUBAT": 2.36, "MART": 3.42, "NISAN": 4.65, "MAYIS": 5.91, "HAZIRAN": 6.21, "TEMMUZ": 6.21, "AGUSTOS": 5.59, "EYLUL": 4.43, "EKIM": 3.08, "KASIM": 1.73, "ARALIK": 1.22}
   },
   {
     "posta_code": "40",
@@ -4558,70 +3785,21 @@
   {
     "posta_code": "58",
     "ilce": "Kangal",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.76, "SUBAT": 5.02, "MART": 5.99, "NISAN": 7.2, "MAYIS": 8.73, "HAZIRAN": 10.5, "TEMMUZ": 11.09, "AGUSTOS": 10.65, "EYLUL": 9.23, "EKIM": 6.8, "KASIM": 4.97, "ARALIK": 3.3},
     "latitude": 39.233544,
     "longitude": 37.39111,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.79, "SUBAT": 2.57, "MART": 3.9, "NISAN": 4.94, "MAYIS": 6.29, "HAZIRAN": 6.62, "TEMMUZ": 6.62, "AGUSTOS": 5.87, "EYLUL": 4.88, "EKIM": 3.4, "KASIM": 2.1, "ARALIK": 1.6}
+
   },
   {
     "posta_code": "59",
     "ilce": "Kapaklı",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours":
+    {"OCAK": 3.69, "SUBAT": 4.96, "MART": 5.54, "NISAN": 7.26, "MAYIS": 9.05, "HAZIRAN": 11.21, "TEMMUZ": 11.92, "AGUSTOS": 10.83, "EYLUL": 8.32, "EKIM": 5.66, "KASIM": 4.15, "ARALIK": 3.13}
+    ,
     "latitude": 41.329119,
     "longitude": 27.980637,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.5, "SUBAT": 2.24, "MART": 3.22, "NISAN": 4.46, "MAYIS": 5.61, "HAZIRAN": 5.97, "TEMMUZ": 5.8, "AGUSTOS": 5.33, "EYLUL": 4.14, "EKIM": 2.82, "KASIM": 1.69, "ARALIK": 1.2}
   },
   {
     "posta_code": "35",
@@ -4928,70 +4106,20 @@
   {
     "posta_code": "54",
     "ilce": "Karapürçek",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.2, "SUBAT": 4.23, "MART": 5.01, "NISAN": 6.33, "MAYIS": 8.39, "HAZIRAN": 9.72, "TEMMUZ": 10.35, "AGUSTOS": 9.56, "EYLUL": 8.01, "EKIM": 5.53, "KASIM": 4.05, "ARALIK": 3.09}
+    ,
     "latitude": 40.641944,
     "longitude": 30.539444,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.42, "SUBAT": 2.29, "MART": 3.28, "NISAN": 4.41, "MAYIS": 5.64, "HAZIRAN": 6.01, "TEMMUZ": 5.84, "AGUSTOS": 5.27, "EYLUL": 4.19, "EKIM": 2.86, "KASIM": 1.69, "ARALIK": 1.23}
   },
   {
     "posta_code": "54",
     "ilce": "Karasu",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours":{"OCAK": 3.2, "SUBAT": 4.23, "MART": 5.01, "NISAN": 6.33, "MAYIS": 8.39, "HAZIRAN": 9.72, "TEMMUZ": 10.35, "AGUSTOS": 9.56, "EYLUL": 8.01, "EKIM": 5.53, "KASIM": 4.05, "ARALIK": 3.09}
+    ,
     "latitude": 41.104416,
     "longitude": 30.696638,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.42, "SUBAT": 2.29, "MART": 3.28, "NISAN": 4.41, "MAYIS": 5.64, "HAZIRAN": 6.01, "TEMMUZ": 5.84, "AGUSTOS": 5.27, "EYLUL": 4.19, "EKIM": 2.86, "KASIM": 1.69, "ARALIK": 1.23}
   },
   {
     "posta_code": "1",
@@ -5346,36 +4474,11 @@
   {
     "posta_code": "55",
     "ilce": "Kavak",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.6, "SUBAT": 4.41, "MART": 5.17, "NISAN": 6.43, "MAYIS": 7.92, "HAZIRAN": 9.15, "TEMMUZ": 9.52, "AGUSTOS": 8.97, "EYLUL": 7.61, "EKIM": 5.72, "KASIM": 4.32, "ARALIK": 3.22}
+    ,
     "latitude": 39.292046,
     "longitude": 37.48127,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.5, "SUBAT": 2.23, "MART": 3.25, "NISAN": 4.29, "MAYIS": 5.6, "HAZIRAN": 5.99, "TEMMUZ": 5.87, "AGUSTOS": 5.27, "EYLUL": 4.13, "EKIM": 2.82, "KASIM": 1.68, "ARALIK": 1.27}
   },
   {
     "posta_code": "48",
@@ -5448,36 +4551,11 @@
   {
     "posta_code": "54",
     "ilce": "Kaynarca",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.2, "SUBAT": 4.23, "MART": 5.01, "NISAN": 6.33, "MAYIS": 8.39, "HAZIRAN": 9.72, "TEMMUZ": 10.35, "AGUSTOS": 9.56, "EYLUL": 8.01, "EKIM": 5.53, "KASIM": 4.05, "ARALIK": 3.09}
+    ,
     "latitude": 41.030833,
     "longitude": 30.3075,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh":{"OCAK": 1.42, "SUBAT": 2.29, "MART": 3.28, "NISAN": 4.41, "MAYIS": 5.64, "HAZIRAN": 6.01, "TEMMUZ": 5.84, "AGUSTOS": 5.27, "EYLUL": 4.19, "EKIM": 2.86, "KASIM": 1.69, "ARALIK": 1.23}
   },
   {
     "posta_code": "81",
@@ -6143,36 +5221,11 @@
   {
     "posta_code": "54",
     "ilce": "Kocaali",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.2, "SUBAT": 4.23, "MART": 5.01, "NISAN": 6.33, "MAYIS": 8.39, "HAZIRAN": 9.72, "TEMMUZ": 10.35, "AGUSTOS": 9.56, "EYLUL": 8.01, "EKIM": 5.53, "KASIM": 4.05, "ARALIK": 3.09}
+    ,
     "latitude": 41.05336,
     "longitude": 30.852775,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.42, "SUBAT": 2.29, "MART": 3.28, "NISAN": 4.41, "MAYIS": 5.64, "HAZIRAN": 6.01, "TEMMUZ": 5.84, "AGUSTOS": 5.27, "EYLUL": 4.19, "EKIM": 2.86, "KASIM": 1.69, "ARALIK": 1.23}
   },
   {
     "posta_code": "21",
@@ -6330,36 +5383,11 @@
   {
     "posta_code": "52",
     "ilce": "Korgan",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours":{"OCAK": 3.44, "SUBAT": 4.4, "MART": 4.77, "NISAN": 6.24, "MAYIS": 7.96, "HAZIRAN": 9.06, "TEMMUZ": 8.92, "AGUSTOS": 8.6, "EYLUL": 7.72, "EKIM": 5.8, "KASIM": 4.34, "ARALIK": 3.11}
+    ,
     "latitude": 40.824722,
     "longitude": 37.346667,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh":{"OCAK": 1.54, "SUBAT": 2.41, "MART": 3.38, "NISAN": 4.48, "MAYIS": 5.77, "HAZIRAN": 6.12, "TEMMUZ": 6.05, "AGUSTOS": 5.42, "EYLUL": 4.28, "EKIM": 2.96, "KASIM": 1.76, "ARALIK": 1.32}
   },
   {
     "posta_code": "18",
@@ -6451,70 +5479,20 @@
   {
     "posta_code": "58",
     "ilce": "Koyulhisar",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.76, "SUBAT": 5.02, "MART": 5.99, "NISAN": 7.2, "MAYIS": 8.73, "HAZIRAN": 10.5, "TEMMUZ": 11.09, "AGUSTOS": 10.65, "EYLUL": 9.23, "EKIM": 6.8, "KASIM": 4.97, "ARALIK": 3.3},
     "latitude": 40.301836,
     "longitude": 37.823357,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh":{"OCAK": 1.79, "SUBAT": 2.57, "MART": 3.9, "NISAN": 4.94, "MAYIS": 6.29, "HAZIRAN": 6.62, "TEMMUZ": 6.62, "AGUSTOS": 5.87, "EYLUL": 4.88, "EKIM": 3.4, "KASIM": 2.1, "ARALIK": 1.6}
+
   },
   {
     "posta_code": "50",
     "ilce": "Kozaklı",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 4.07, "SUBAT": 5.32, "MART": 6.43, "NISAN": 7.65, "MAYIS": 9.16, "HAZIRAN": 11.17, "TEMMUZ": 12.05, "AGUSTOS": 11.48, "EYLUL": 9.68, "EKIM": 7.27, "KASIM": 5.35, "ARALIK": 3.57}
+    ,
     "latitude": 39.221389,
     "longitude": 34.850556,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.87, "SUBAT": 2.48, "MART": 4.03, "NISAN": 4.95, "MAYIS": 6.2, "HAZIRAN": 6.61, "TEMMUZ": 6.71, "AGUSTOS": 5.94, "EYLUL": 4.95, "EKIM": 3.56, "KASIM": 2.22, "ARALIK": 1.68}
   },
   {
     "posta_code": "1",
@@ -6940,36 +5918,11 @@
   {
     "posta_code": "52",
     "ilce": "Kumru",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.44, "SUBAT": 4.4, "MART": 4.77, "NISAN": 6.24, "MAYIS": 7.96, "HAZIRAN": 9.06, "TEMMUZ": 8.92, "AGUSTOS": 8.6, "EYLUL": 7.72, "EKIM": 5.8, "KASIM": 4.34, "ARALIK": 3.11}
+    ,
     "latitude": 40.874444,
     "longitude": 37.263889,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.54, "SUBAT": 2.41, "MART": 3.38, "NISAN": 4.48, "MAYIS": 5.77, "HAZIRAN": 6.12, "TEMMUZ": 6.05, "AGUSTOS": 5.42, "EYLUL": 4.28, "EKIM": 2.96, "KASIM": 1.76, "ARALIK": 1.32}
   },
   {
     "posta_code": "18",
@@ -6984,36 +5937,11 @@
   {
     "posta_code": "56",
     "ilce": "Kurtalan",
-    "sunshineHours": {
-      "OCAK": 3.92,
-      "SUBAT": 5.04,
-      "MART": 6.12,
-      "NISAN": 7.57,
-      "MAYIS": 9.72,
-      "HAZIRAN": 11.7,
-      "TEMMUZ": 12.0,
-      "AGUSTOS": 11.23,
-      "EYLUL": 10.07,
-      "EKIM": 7.31,
-      "KASIM": 5.56,
-      "ARALIK": 4.06
-    },
+    "sunshineHours":{"OCAK": 3.84, "SUBAT": 5.0, "MART": 6.04, "NISAN": 7.38, "MAYIS": 9.64, "HAZIRAN": 11.52, "TEMMUZ": 11.78, "AGUSTOS": 11.07, "EYLUL": 9.99, "EKIM": 7.19, "KASIM": 5.53, "ARALIK": 4.02}
+    ,
     "latitude": 37.925331,
     "longitude": 41.684926,
-    "monthlyKWh": {
-      "OCAK": 1.83,
-      "SUBAT": 2.42,
-      "MART": 4.02,
-      "NISAN": 5.06,
-      "MAYIS": 6.18,
-      "HAZIRAN": 6.75,
-      "TEMMUZ": 6.57,
-      "AGUSTOS": 5.89,
-      "EYLUL": 5.0,
-      "EKIM": 3.8,
-      "KASIM": 2.33,
-      "ARALIK": 1.8
-    }
+    "monthlyKWh": {"OCAK": 1.89, "SUBAT": 2.54, "MART": 4.09, "NISAN": 5.1, "MAYIS": 6.27, "HAZIRAN": 6.78, "TEMMUZ": 6.71, "AGUSTOS": 5.93, "EYLUL": 5.07, "EKIM": 3.79, "KASIM": 2.37, "ARALIK": 1.79}
   },
   {
     "posta_code": "74",
@@ -7189,36 +6117,11 @@
   {
     "posta_code": "55",
     "ilce": "Ladik",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours": {"OCAK": 3.6, "SUBAT": 4.41, "MART": 5.17, "NISAN": 6.43, "MAYIS": 7.92, "HAZIRAN": 9.15, "TEMMUZ": 9.52, "AGUSTOS": 8.97, "EYLUL": 7.61, "EKIM": 5.72, "KASIM": 4.32, "ARALIK": 3.22}
+    ,
     "latitude": 40.910556,
     "longitude": 35.891944,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.5, "SUBAT": 2.23, "MART": 3.25, "NISAN": 4.29, "MAYIS": 5.6, "HAZIRAN": 5.99, "TEMMUZ": 5.87, "AGUSTOS": 5.27, "EYLUL": 4.13, "EKIM": 2.82, "KASIM": 1.68, "ARALIK": 1.27}
   },
   {
     "posta_code": "22",
@@ -7448,36 +6351,12 @@
   {
     "posta_code": "59",
     "ilce": "Malkara",
-    "sunshineHours": {
-      "OCAK": 1.95,
-      "SUBAT": 2.47,
-      "MART": 4.09,
-      "NISAN": 5.06,
-      "MAYIS": 6.16,
-      "HAZIRAN": 6.82,
-      "TEMMUZ": 6.55,
-      "AGUSTOS": 5.93,
-      "EYLUL": 5.0,
-      "EKIM": 3.79,
-      "KASIM": 2.44,
-      "ARALIK": 1.8
-    },
+    "sunshineHours":
+    {"OCAK": 3.69, "SUBAT": 4.96, "MART": 5.54, "NISAN": 7.26, "MAYIS": 9.05, "HAZIRAN": 11.21, "TEMMUZ": 11.92, "AGUSTOS": 10.83, "EYLUL": 8.32, "EKIM": 5.66, "KASIM": 4.15, "ARALIK": 3.13}
+    ,
     "latitude": 40.89,
     "longitude": 26.901111,
-    "monthlyKWh": {
-      "OCAK": 3.73,
-      "SUBAT": 4.89,
-      "MART": 6.16,
-      "NISAN": 7.21,
-      "MAYIS": 8.76,
-      "HAZIRAN": 10.21,
-      "TEMMUZ": 11.06,
-      "AGUSTOS": 10.45,
-      "EYLUL": 8.83,
-      "EKIM": 6.48,
-      "KASIM": 4.73,
-      "ARALIK": 3.35
-    }
+    "monthlyKWh": {"OCAK": 1.5, "SUBAT": 2.24, "MART": 3.22, "NISAN": 4.46, "MAYIS": 5.61, "HAZIRAN": 5.97, "TEMMUZ": 5.8, "AGUSTOS": 5.33, "EYLUL": 4.14, "EKIM": 2.82, "KASIM": 1.69, "ARALIK": 1.2}
   },
   {
     "posta_code": "34",
