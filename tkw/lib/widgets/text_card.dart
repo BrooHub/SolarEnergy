@@ -52,7 +52,7 @@ class TextCard extends StatelessWidget {
               ),
               padding: const EdgeInsets.symmetric(horizontal: 8),
             ),
-            icon: const Icon(Icons.arrow_forward, size: 16, color: Colors.white),
+            icon: const Icon(Icons.arrow_forward_rounded, size: 16, color: Colors.white),
             label: const Text(
               'Göster',
               style: TextStyle(color: Colors.white),

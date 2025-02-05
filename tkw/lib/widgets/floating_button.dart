@@ -12,7 +12,7 @@ class FancyFab extends StatefulWidget {
 
   const FancyFab({super.key, 
     required this.mapController,
-    required this.center,
+    required this.center, required double defaultZoom,
   });
 
   @override
@@ -76,7 +76,7 @@ class _FancyFabState extends State<FancyFab> with SingleTickerProviderStateMixin
       backgroundColor: Colors.white,
       onPressed: () => showPaymentModal(context),
       tooltip: 'Home',
-      child: const Icon(Icons.home,size: 30,),
+      child: const Icon(Icons.home_rounded,size: 30,),
     );
   }
 
@@ -85,7 +85,7 @@ class _FancyFabState extends State<FancyFab> with SingleTickerProviderStateMixin
       backgroundColor: Colors.white,
       onPressed: () => widget.mapController.move(widget.center, 7.0),
       tooltip: 'Zoom to Center',
-      child: const Icon(Icons.my_location,size:30),
+      child: const Icon(Icons.my_location_rounded,size:30),
     );
   }
 

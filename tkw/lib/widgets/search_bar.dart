@@ -30,7 +30,7 @@ class MySearchBar extends StatelessWidget {
             onChanged: (_) {
               controller.openView();
             },
-            leading: const Icon(Icons.search),
+            leading: const Icon(Icons.search_rounded),
           );
         },
         suggestionsBuilder:
@@ -51,10 +51,10 @@ class MySearchBar extends StatelessWidget {
             final city = AppState.ilList[postaCode - 1]['il'];
             return ListTile(
               dense: true,
-              trailing: const Icon(Icons.ads_click_outlined),
+              trailing: const Icon(Icons.ads_click_rounded),
               title: Text("İlçe: ${item['ilce']} "),
               subtitle: Text("Türkiye, İl: $city"),
-              leading: const Icon(Icons.location_on),
+              leading: const Icon(Icons.location_on_rounded),
               onTap: () {
                 onSearchResultSelected(item['ilce']);
                 controller.closeView("");

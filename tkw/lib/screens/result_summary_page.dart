@@ -15,7 +15,7 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage> {
   final _formKey = GlobalKey<FormState>();
   final _panelCapacityController = TextEditingController(text: '400');
   final _panelCountController = TextEditingController(text: '10');
-  final _electricityPriceController = TextEditingController(text: '1.2');
+  final _electricityPriceController = TextEditingController(text: '2.07');
   String _locationType = 'roof';
   bool _isLoading = false;
 
@@ -220,19 +220,19 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage> {
               _buildNumberInput(
                 controller: _panelCapacityController,
                 label: 'Panel Gücü (W)',
-                icon: Icons.solar_power,
+                icon: Icons.solar_power_rounded,
               ),
               const SizedBox(height: 16),
               _buildNumberInput(
                 controller: _panelCountController,
                 label: 'Panel Sayısı',
-                icon: Icons.format_list_numbered,
+                icon: Icons.format_list_numbered_rounded,
               ),
               const SizedBox(height: 16),
               _buildNumberInput(
                 controller: _electricityPriceController,
                 label: 'Elektrik Fiyatı (₺/kWh)',
-                icon: Icons.attach_money,
+                icon: Icons.currency_lira_rounded,
               ),
               const SizedBox(height: 24),
               ElevatedButton(
@@ -272,7 +272,7 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage> {
         ),
         filled: true,
         fillColor: Colors.grey.shade50,
-        prefixIcon: const Icon(Icons.location_on),
+        prefixIcon: const Icon(Icons.location_on_rounded),
       ),
       items: const [
         DropdownMenuItem(value: 'roof', child: Text('Çatı Kurulumu')),
@@ -391,7 +391,7 @@ class _SolarCalculatorPageState extends State<SolarCalculatorPage> {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          Icon(Icons.info_outline,
+                          Icon(Icons.info_outline_rounded,
                               size: 18, color: Colors.blueGrey.shade600),
                         ],
                       ),

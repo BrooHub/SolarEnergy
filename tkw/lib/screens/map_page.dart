@@ -1,148 +1,98 @@
-  // ignore_for_file: library_private_types_in_public_api, avoid_print
+import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
+import 'package:provider/provider.dart';
+import '../providers/app_state.dart';
+import '../models/district.dart';
+import '../widgets/floating_button.dart';
+import '../widgets/loading_indicator.dart';
+import '../widgets/search_bar.dart';
 
-  import 'package:flutter/material.dart';
-  import 'package:flutter_map/flutter_map.dart';
-  import 'package:latlong2/latlong.dart';
-  import 'package:provider/provider.dart';
-  import '../providers/app_state.dart';
-  import '../models/district.dart';
+class MapPage extends StatefulWidget {
+  const MapPage({super.key});
+  static bool isLoading = true;
 
-  import '../widgets/floating_button.dart';
-  import '../widgets/loading_indicator.dart';
-  import '../widgets/search_bar.dart';
+  @override
+  _MapPageState createState() => _MapPageState();
+}
 
-  class MapPage extends StatefulWidget {
-    const MapPage({super.key});
-    static bool isLoading = true;
+class _MapPageState extends State<MapPage> {
+  MapController mapController = MapController();
+  static const LatLng _center = LatLng(37.5912, 36.9442); // Kahramanmaraş
+  static const LatLng _ankaraLocation = LatLng(39.9334, 32.8597); // Ankara
+  static const double _defaultZoom = 11.0; // Varsayılan zoom seviyesi
+  static const double _detailZoom = 12.5; // Detaylı görünüm için zoom seviyesi
 
-    @override
-    _MapPageState createState() => _MapPageState();
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
+      setState(() {
+        MapPage.isLoading = false;
+      });
+    });
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      mapController.move(_ankaraLocation, _defaultZoom); // Başlangıçta Ankara'ya odaklan
+    });
   }
 
-  class _MapPageState extends State<MapPage> {
-    MapController mapController = MapController();
-    static const LatLng _center = LatLng(39.9334, 32.8597);
-    @override
-    void initState() {
-      super.initState();
-      // Simulate map loading
-      Future.delayed(const Duration(seconds: 2), () {
-        setState(() {
-          MapPage.isLoading = false;
-        });
+  void _onSearchResultSelected(String ilceName) {
+    final appState = Provider.of<AppState>(context, listen: false);
+    final ilce = AppState.ilceList.firstWhere(
+      (il) => il['ilce'] == ilceName,
+      orElse: () => null,
+    );
+
+    if (ilce == null) return;
+
+    if (AppState.selectedDistrict == null) {
+      AppState.selectedDistrict = District(
+        postaCode: ilce['posta_code'],
+        ilce: ilceName,
+        latitude: ilce['latitude'],
+        longitude: ilce['longitude'],
+        monthlyKWh: ilce['monthlyKWh'],
+        sunshineHours: ilce['sunshineHours'],
+      );
+    } else {
+      AppState.selectedDistrict!
+        ..ilce = ilceName
+        ..latitude = ilce['latitude']
+        ..longitude = ilce['longitude']
+        ..monthlyKWh = ilce['monthlyKWh']
+        ..sunshineHours = ilce['sunshineHours']
+        ..postaCode = ilce['posta_code'];
+    }
+
+    mapController.move(
+      LatLng(ilce['latitude'], ilce['longitude']),
+      _detailZoom,
+    );
+
+    if (!MapPage.isLoading) {
+      Future.delayed(const Duration(milliseconds: 500), () {
+        _showDialog(context, AppState.selectedDistrict!);
       });
     }
+  }
 
-    void _onSearchResultSelected(String ilceName) {
-      Provider.of<AppState>(context, listen: false);
-      final ilce = AppState.ilceList.firstWhere(
-        (il) => il['ilce'] == ilceName,
-        orElse: () => null,
-      );
-
-      if (ilce == null) {
-        print("No matching district found for '$ilceName'");
-        return;
-      }
-      if (AppState.selectedDistrict == null) {
-        AppState.selectedDistrict = District(
-            postaCode: ilce['posta_code'],
-            ilce: ilceName,
-            latitude: ilce['latitude'],
-            longitude: ilce['longitude'],
-            monthlyKWh: ilce['monthlyKWh'],
-            sunshineHours: ilce['sunshineHours']);
-      } else {
-        AppState.selectedDistrict?.ilce = ilceName;
-        AppState.selectedDistrict?.latitude = ilce['latitude'];
-        AppState.selectedDistrict?.longitude = ilce['longitude'];
-        AppState.selectedDistrict?.monthlyKWh = ilce['monthlyKWh'];
-        AppState.selectedDistrict?.sunshineHours = ilce['sunshineHours'];
-        AppState.selectedDistrict?.postaCode = ilce['posta_code'];
-      }
-
-      final postaCode = int.parse(ilce['posta_code']);
-      final city = AppState.ilList[postaCode - 1]['il'];
-
-
-      print("Matching City: $city");
-      print("Matching District: $ilce");
-
-      mapController.move(
-          LatLng(
-            ilce['latitude'],
-            ilce['longitude'],
-          ),
-          10.0);
-
-      if (MapPage.isLoading) {
-        const LoadingIndicator();
-      }
-      Future.delayed(const Duration(seconds: 1), () {
-        setState(() {
-          _showDialog(context,AppState.selectedDistrict!);
-        });
-      });
-    }
-
-    // void _onTap(LatLng position) {
-    //   final appState = Provider.of<AppState>(context, listen: false);
-    //   // Find the nearest district
-    //   District nearestDistrict = appState.districts.reduce((a, b) {
-    //     double distA = (a.latitude - position.latitude).abs() +
-    //         (a.longitude - position.longitude).abs();
-    //     double distB = (b.latitude - position.latitude).abs() +
-    //         (b.longitude - position.longitude).abs();
-    //     return distA < distB ? a : b;
-    //   });
-    //   appState.setSelectedDistrict(nearestDistrict);
-    //   _showDistrictInfo(nearestDistrict);
-    // }
-
-    void _showDistrictInfo(District district) {
-      showModalBottomSheet(
-        context: context,
-        builder: (BuildContext context) {
-          return Container(
-            padding: const EdgeInsets.all(20),
-            color: Colors.white,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(district.ilce,
-                    style: Theme.of(context).textTheme.titleLarge),
-                const SizedBox(height: 8),
-                Text('Latitude: ${district.latitude.toStringAsFixed(4)}'),
-                Text('Longitude: ${district.longitude.toStringAsFixed(4)}'),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor: WidgetStateProperty.all(Colors.white)),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/result_summary');
-                  },
-                  child: const Text('Detayları Görüntüle'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-    }
-
-    @override
-    Widget build(BuildContext context) {
-      final appState = Provider.of<AppState>(context);
-      return Scaffold(
-        body: Column(children: [
+  @override
+  Widget build(BuildContext context) {
+    final appState = Provider.of<AppState>(context);
+    return Scaffold(
+      body: Column(
+        children: [
           Expanded(
-            flex: 1,
             child: Stack(
               children: [
                 FlutterMap(
                   mapController: mapController,
                   options: MapOptions(
-                    onTap: (_, position) => (){},
+                    initialCenter: _ankaraLocation,
+                    initialZoom: _defaultZoom,
+                    minZoom: 5.0,
+                    maxZoom: 18.0,
+                    onTap: (_, __) {},
                   ),
                   children: [
                     TileLayer(
@@ -155,15 +105,20 @@
                           .map((district) => Marker(
                                 width: 50.0,
                                 height: 50.0,
-                                point:
-                                    LatLng(district.latitude, district.longitude),
+                                point: LatLng(
+                                  district.latitude,
+                                  district.longitude,
+                                ),
                                 child: IconButton(
                                   icon: const Icon(Icons.location_on),
                                   color: Colors.red,
                                   iconSize: 25.0,
                                   onPressed: () {
                                     appState.setSelectedDistrict(district);
-
+                                    mapController.move(
+                                      LatLng(district.latitude, district.longitude),
+                                      _detailZoom,
+                                    );
                                     _showDialog(context, district);
                                   },
                                 ),
@@ -179,50 +134,140 @@
               ],
             ),
           ),
-        ]),
-        floatingActionButton: FancyFab(
-          mapController: mapController,
-          center: _center,
-        ),
-      );
-    }
-
-    void _showDialog(
-        // ignore: non_constant_identifier_names
-        BuildContext context,
-        District district) {
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            backgroundColor: Colors.white,
-            content: Text(
-              "Ülke: Türkiye \n Il: ${AppState.ilList[int.parse(district.postaCode) - 1]['il']} \n Ilçe: ${district.ilce} ",
-            ),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop(); // Close the dialog
-                },
-                child: const Text(
-                  'iptal',
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/result_summary');
-                },
-                child: const Text(
-                  'Sec',
-                  style: TextStyle(color: Colors.black),
-                ),
-              ),
-            ],
-          );
-        },
-      );
-    }
+        ],
+      ),
+      floatingActionButton: FancyFab(
+        mapController: mapController,
+        center: _center,
+        defaultZoom: _detailZoom, // Kahramanmaraş'a yönlendirirken kullanılacak zoom seviyesi
+      ),
+    );
   }
+
+  void _showDialog(BuildContext context, District district) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 400),
+            padding: const EdgeInsets.all(24), // Padding'i biraz artırdık
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  district.ilce,
+                  style: const TextStyle(
+                    fontSize: 26, // Font boyutunu biraz artırdık
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 24),
+                _buildInfoCard(
+                  'Ülke',
+                  'Türkiye',
+                ),
+                const SizedBox(height: 12),
+                _buildInfoCard(
+                  'İl',
+                  AppState.ilList[int.parse(district.postaCode) - 1]['il'],
+                ),
+                const SizedBox(height: 12),
+                _buildInfoCard(
+                  'Koordinatlar',
+                  '${district.latitude.toStringAsFixed(4)}°N, ${district.longitude.toStringAsFixed(4)}°E',
+                ),
+                const SizedBox(height: 24),
+                Row(
+                  children: [
+                    Expanded(
+                      child: OutlinedButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        style: OutlinedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 16), // Buton yüksekliğini artırdık
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          side: BorderSide(color: Colors.grey[300]!),
+                        ),
+                        child: const Text(
+                          'Kapat',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.teal,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () { 
+                          Navigator.pushNamed(context, '/result_summary');
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.teal,
+                          padding: const EdgeInsets.symmetric(vertical: 16), // Buton yüksekliğini artırdık
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          elevation: 0,
+                        ),
+                        child: const Text(
+                          'Detayları Görüntüle',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildInfoCard(String label, String value) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      decoration: BoxDecoration(
+        color: Colors.grey[50],
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Colors.grey[200]!),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 14,
+              color: Colors.grey[600],
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            value,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
