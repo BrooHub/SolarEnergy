@@ -66,7 +66,7 @@ class _SearchPageState extends State<SearchPage> {
               value: selectedIl,
               decoration: const InputDecoration(
                 fillColor: Colors.black,
-                labelText: 'Select (il)',
+                labelText: 'Seçilen (il)',
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(24.0))),
               ),
@@ -91,7 +91,7 @@ class _SearchPageState extends State<SearchPage> {
               dropdownColor: Colors.white,
               value: selectedIlce,
               decoration: const InputDecoration(
-                labelText: 'Select (ilce)',
+                labelText: 'Seçilen (ilçe)',
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(24.0))),
               ),
@@ -121,7 +121,7 @@ class _SearchPageState extends State<SearchPage> {
               dropdownColor: Colors.white,
               value: selectedMonth,
               decoration: const InputDecoration(
-                labelText: 'Select Month',
+                labelText: 'Seçilen Ay',
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(24.0))),
               ),
